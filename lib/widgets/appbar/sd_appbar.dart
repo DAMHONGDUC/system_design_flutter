@@ -20,17 +20,17 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Row(
         children: [
-          SdInkWell(
-            containerBg: const Color(0xFFECF0F4),
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Icon(
-              Icons.arrow_back_ios_rounded,
-              color: const Color(0xFF181C2E),
-              size: SdIconSize.size18,
-            ),
-          ),
+          // SdInkWell(
+          //   containerBg: const Color(0xFFECF0F4),
+          //   onTap: () {
+          //     Navigator.of(context).pop();
+          //   },
+          //   child: Icon(
+          //     Icons.arrow_back_ios_rounded,
+          //     color: const Color(0xFF181C2E),
+          //     size: SdIconSize.size18,
+          //   ),
+          // ),
           const SdHorizontalSpacing(),
           Text(title, style: SdTextStyle.bodyMedium()),
         ],
