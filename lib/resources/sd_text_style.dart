@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:system_design_flutter/theme/sd_colors.dart';
+import 'package:system_design_flutter/resources/resources.dart';
+import 'package:system_design_flutter/theme/custom_theme.dart';
+import 'package:system_design_flutter/resources/sd_colors.dart';
 
 abstract class BaseTextStyle {
-  static const String fontFamily = 'Roboto';
-
   static TextStyle base({
-    double fontSize = 14,
+    double fontSize = 10,
     FontWeight fontWeight = FontWeight.w400,
     Color color = SdColors.black,
   }) {
     return TextStyle(
-      fontFamily: fontFamily,
+      fontFamily: SdConstants.sdFontFamily,
       fontSize: fontSize.sp,
       fontWeight: fontWeight,
       color: color,

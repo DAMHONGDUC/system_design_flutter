@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/theme/theme.dart';
+import 'package:system_design_flutter/resources/resources.dart';
 
 class SdInkWell extends StatelessWidget {
   final void Function()? onTap;
@@ -32,7 +33,7 @@ class SdInkWell extends StatelessWidget {
           ),
           onTap: onTap,
           child: Padding(
-            padding: padding ?? EdgeInsets.all(SdThemeConstants.spacing12),
+            padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing12),
             child: child,
           ),
         ),

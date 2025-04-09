@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:system_design_flutter/theme/theme.dart';
 import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_horizontal_spacing.dart';
+import 'package:system_design_flutter/resources/resources.dart';
 
 class SdBottomSheetTopBar extends StatelessWidget {
   final String? title;
@@ -14,16 +15,16 @@ class SdBottomSheetTopBar extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: SdThemeConstants.spacing40,
-          height: SdThemeConstants.spacing6,
+          width: SdSpacingConstants.spacing40,
+          height: SdSpacingConstants.spacing6,
           decoration: BoxDecoration(
             color: SdColors.grey,
-            borderRadius: BorderRadius.circular(SdThemeConstants.radius8),
+            borderRadius: BorderRadius.circular(SdSpacingConstants.radius8),
           ),
         ),
-        SdVerticalSpacing(value: SdThemeConstants.spacing4),
+        SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         SizedBox(
-          height: SdThemeConstants.spacing32,
+          height: SdSpacingConstants.spacing32,
           width: double.infinity,
           child: Stack(
             alignment: Alignment.center,
@@ -31,7 +32,7 @@ class SdBottomSheetTopBar extends StatelessWidget {
               Positioned(
                 left: 0,
                 child: SdInkWell(
-                  padding: EdgeInsets.all(SdThemeConstants.spacing4),
+                  padding: EdgeInsets.all(SdSpacingConstants.spacing4),
                   onTap: onClose ?? () => Navigator.of(context).pop(),
                   child: Icon(Icons.close, size: SdIconSize.size24),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SdThemeConstants {
-  SdThemeConstants._();
+class SdSpacingConstants {
+  SdSpacingConstants._();
 
   // Spacings
   static final double spacing2 = 2.sp;

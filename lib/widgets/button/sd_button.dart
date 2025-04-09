@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/theme/theme.dart';
+import 'package:system_design_flutter/resources/resources.dart';
 
 class SdButton extends StatelessWidget {
   final String label;
@@ -27,11 +28,11 @@ class SdButton extends StatelessWidget {
           backgroundColor: SdColors.black,
           foregroundColor: textColor,
           padding: EdgeInsets.symmetric(
-            vertical: SdThemeConstants.spacing12,
-            horizontal: SdThemeConstants.spacing24,
+            vertical: SdSpacingConstants.spacing12,
+            horizontal: SdSpacingConstants.spacing24,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(SdThemeConstants.radius100),
+            borderRadius: BorderRadius.circular(SdSpacingConstants.radius100),
           ),
         ),
         onPressed: onPressed,

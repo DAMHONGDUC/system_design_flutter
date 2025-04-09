@@ -1,6 +1,6 @@
 name: system_design_flutter
 description: "system_design_flutter"
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   storybook_flutter: ^0.14.1
+  adaptive_theme: ^3.6.0
 
 dev_dependencies:
   flutter_test:

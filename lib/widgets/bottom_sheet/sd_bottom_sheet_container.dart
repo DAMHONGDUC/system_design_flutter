@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/theme/theme.dart';
 
 class SdBottomSheetContainer extends StatelessWidget {
@@ -8,7 +9,7 @@ class SdBottomSheetContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(SdThemeConstants.spacing12),
+      padding: EdgeInsets.all(SdSpacingConstants.spacing12),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
