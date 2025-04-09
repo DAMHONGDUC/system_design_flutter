@@ -1,4 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -34,13 +35,15 @@ class MyApp extends StatelessWidget {
 
 Widget materialWrapper(Widget? child, AdaptiveThemeMode? savedThemeMode) {
   return AdaptiveTheme(
-    light: CustomTheme.lightTheme(fontFamily: SdConstants.sdFontFamily),
-    dark: CustomTheme.darkTheme(fontFamily: SdConstants.sdFontFamily),
+    light: CustomTheme.light(fontFamily: SdConstants.sdFontFamily),
+    dark: CustomTheme.dark(fontFamily: SdConstants.sdFontFamily),
     initial: savedThemeMode ?? AdaptiveThemeMode.system,
     builder:
         (theme, darkTheme) => ScreenUtilInit(
           fontSizeResolver: (num fontSize, ScreenUtil instance) {
-            return instance.setWidth(fontSize);
+            return kIsWeb
+                ? fontSize * 1.1944444444444444
+                : instance.setWidth(fontSize);
           },
           designSize: SdConstants.designSize,
           minTextAdapt: true,

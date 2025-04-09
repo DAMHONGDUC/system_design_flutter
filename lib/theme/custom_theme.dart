@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-
 class CustomTheme {
-  static ThemeData lightTheme({
+  static ThemeData light({
     String? fontFamily,
     List<ThemeExtension<dynamic>>? extensions,
   }) {
@@ -15,7 +13,7 @@ class CustomTheme {
     );
   }
 
-  static ThemeData darkTheme({
+  static ThemeData dark({
     String? fontFamily,
     List<ThemeExtension<dynamic>>? extensions,
   }) {

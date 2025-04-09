@@ -8,12 +8,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
   final Color? backgroundColor;
+  final bool centerTitle;
 
   const SdAppBar({
     super.key,
     required this.title,
     this.actions,
     this.backgroundColor,
+    this.centerTitle = false,
   });
 
   @override
@@ -29,14 +31,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Icon(
               Icons.arrow_back_ios_rounded,
               color: const Color(0xFF181C2E),
-              size: SdIconSize.size18,
+              size: SdIconSize.size16,
             ),
           ),
           const SdHorizontalSpacing(),
           Text(title, style: SdTextStyle.bodyMedium()),
         ],
       ),
-      centerTitle: false,
+      centerTitle: centerTitle,
       backgroundColor: backgroundColor,
       actions: actions,
       leading: const SizedBox.shrink(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
+import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/system_design_flutter.dart';
 
 class SdAppBarStory extends Story {
@@ -10,7 +11,11 @@ class SdAppBarStory extends Story {
         builder:
             (context) => SafeArea(
               child: Scaffold(
-                // appBar: SdAppBar(title: 'app bar sample'),
+                backgroundColor: SdColors.white,
+                appBar: SdAppBar(
+                  title: 'app bar sample',
+                  backgroundColor: SdColors.white,
+                ),
                 body: Center(child: Text('App Bar Sample')),
               ),
             ),

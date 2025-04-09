@@ -33,7 +33,7 @@ class SdInkWell extends StatelessWidget {
           ),
           onTap: onTap,
           child: Padding(
-            padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing12),
+            padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing10),
             child: child,
           ),
         ),
