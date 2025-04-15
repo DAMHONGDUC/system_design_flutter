@@ -44,7 +44,7 @@ class SdTextField extends StatelessWidget {
           decoration: SdDecorationHelper.textFieldDecoration(
             context,
           ).copyWith(suffixIcon: rightWidget),
-          style: SdTextStyle.bodyMedium(),
+          style: SdTextStyle.body14(),
         ),
       ],
     );

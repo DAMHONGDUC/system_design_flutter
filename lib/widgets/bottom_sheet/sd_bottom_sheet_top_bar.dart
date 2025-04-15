@@ -37,7 +37,7 @@ class SdBottomSheetTopBar extends StatelessWidget {
                   child: Icon(Icons.close, size: SdIconSize.size24),
                 ),
               ),
-              if (title != null) Text(title!, style: SdTextStyle.bodyLarge()),
+              if (title != null) Text(title!, style: SdTextStyle.heading12()),
             ],
           ),
         ),

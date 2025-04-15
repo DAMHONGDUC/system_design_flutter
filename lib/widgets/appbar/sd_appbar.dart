@@ -35,7 +35,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           const SdHorizontalSpacing(),
-          Text(title, style: SdTextStyle.bodyMedium()),
+          Text(title, style: SdTextStyle.body14()),
         ],
       ),
       centerTitle: centerTitle,

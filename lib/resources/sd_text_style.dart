@@ -4,7 +4,7 @@ import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/theme/custom_theme.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
 
-abstract class BaseTextStyle {
+abstract class SdBaseTextStyle {
   static TextStyle base({
     double fontSize = 10,
     FontWeight fontWeight = FontWeight.w400,
@@ -19,35 +19,60 @@ abstract class BaseTextStyle {
   }
 }
 
-class SdTextStyle extends BaseTextStyle {
+class SdTextStyle extends SdBaseTextStyle {
   SdTextStyle._();
 
-  // Titles
-  static TextStyle titleSmall() => BaseTextStyle.base(fontSize: 12.sp);
-  static TextStyle titleMedium() =>
-      BaseTextStyle.base(fontSize: 14.sp, fontWeight: FontWeight.w500);
-  static TextStyle titleLarge() =>
-      BaseTextStyle.base(fontSize: 16.sp, fontWeight: FontWeight.w600);
+  // Body styles (regular weight)
+  static TextStyle body6() => SdBaseTextStyle.base(fontSize: 6.sp);
+  static TextStyle body8() => SdBaseTextStyle.base(fontSize: 8.sp);
+  static TextStyle body9() => SdBaseTextStyle.base(fontSize: 9.sp);
+  static TextStyle body10() => SdBaseTextStyle.base(fontSize: 10.sp);
+  static TextStyle body12() => SdBaseTextStyle.base(fontSize: 12.sp);
+  static TextStyle body14() => SdBaseTextStyle.base(fontSize: 14.sp);
+  static TextStyle body16() => SdBaseTextStyle.base(fontSize: 16.sp);
+  static TextStyle body18() => SdBaseTextStyle.base(fontSize: 18.sp);
+  static TextStyle body20() => SdBaseTextStyle.base(fontSize: 20.sp);
+  static TextStyle body24() => SdBaseTextStyle.base(fontSize: 24.sp);
+  static TextStyle body32() => SdBaseTextStyle.base(fontSize: 32.sp);
+  static TextStyle body40() => SdBaseTextStyle.base(fontSize: 40.sp);
+  static TextStyle body48() => SdBaseTextStyle.base(fontSize: 48.sp);
+  static TextStyle body56() => SdBaseTextStyle.base(fontSize: 56.sp);
+  static TextStyle body64() => SdBaseTextStyle.base(fontSize: 64.sp);
+  static TextStyle body72() => SdBaseTextStyle.base(fontSize: 72.sp);
 
-  // Body
-  static TextStyle bodySmall() => BaseTextStyle.base(fontSize: 12.sp);
-  static TextStyle bodyMedium() => BaseTextStyle.base(fontSize: 14.sp);
-  static TextStyle bodyLarge() =>
-      BaseTextStyle.base(fontSize: 16.sp, fontWeight: FontWeight.w500);
-
-  // Headings
-  static TextStyle headingSmall() =>
-      BaseTextStyle.base(fontSize: 18.sp, fontWeight: FontWeight.w600);
-  static TextStyle headingMedium() =>
-      BaseTextStyle.base(fontSize: 20.sp, fontWeight: FontWeight.w700);
-  static TextStyle headingLarge() =>
-      BaseTextStyle.base(fontSize: 24.sp, fontWeight: FontWeight.w900);
-
-  // Captions & Labels
-  static TextStyle caption() =>
-      BaseTextStyle.base(fontSize: 10.sp, fontWeight: FontWeight.w300);
-  static TextStyle label() =>
-      BaseTextStyle.base(fontSize: 12.sp, fontWeight: FontWeight.w500);
+  // Heading styles (semi-bold)
+  static TextStyle heading6() =>
+      SdBaseTextStyle.base(fontSize: 6.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading8() =>
+      SdBaseTextStyle.base(fontSize: 8.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading9() =>
+      SdBaseTextStyle.base(fontSize: 9.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading10() =>
+      SdBaseTextStyle.base(fontSize: 10.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading12() =>
+      SdBaseTextStyle.base(fontSize: 12.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading14() =>
+      SdBaseTextStyle.base(fontSize: 14.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading16() =>
+      SdBaseTextStyle.base(fontSize: 16.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading18() =>
+      SdBaseTextStyle.base(fontSize: 18.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading20() =>
+      SdBaseTextStyle.base(fontSize: 20.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading24() =>
+      SdBaseTextStyle.base(fontSize: 24.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading32() =>
+      SdBaseTextStyle.base(fontSize: 32.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading40() =>
+      SdBaseTextStyle.base(fontSize: 40.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading48() =>
+      SdBaseTextStyle.base(fontSize: 48.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading56() =>
+      SdBaseTextStyle.base(fontSize: 56.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading64() =>
+      SdBaseTextStyle.base(fontSize: 64.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading72() =>
+      SdBaseTextStyle.base(fontSize: 72.sp, fontWeight: FontWeight.w600);
 }
 
 extension TextStyleExt on TextStyle {

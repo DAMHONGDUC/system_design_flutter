@@ -24,7 +24,7 @@ class SdAmountTextField extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
-          child: Text(title, style: SdTextStyle.bodySmall()),
+          child: Text(title, style: SdTextStyle.body12()),
         ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing2),
         Row(
@@ -38,7 +38,7 @@ class SdAmountTextField extends StatelessWidget {
                   focusNode: focusNode,
                   keyboardType: TextInputType.number,
                   // cursorColor: context.appTheme.inputCursor,
-                  style: SdTextStyle.bodyMedium(),
+                  style: SdTextStyle.body14(),
                 ),
               ),
             ),

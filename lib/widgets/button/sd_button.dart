@@ -20,11 +20,9 @@ class SdButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MoonTypography.typography.body.text10;
     return MoonFilledButton(
-      label: Text(
-        text,
-        style: SdTextStyle.bodyMedium().copyWith(color: textColor),
-      ),
+      label: Text(text, style: SdTextStyle.body12().copyWith(color: textColor)),
       backgroundColor: bgColor,
       isFullWidth: true,
       onTap: onTap,
