@@ -10,6 +10,7 @@ class SdBottomSheetContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(SdSpacingConstants.spacing12),
+      color: SdColors.white,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -28,18 +28,16 @@ class SdAmountTextField extends StatelessWidget {
         ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing2),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Flexible(
               flex: 7,
-              child: SizedBox(
-                height: 50.sp,
-                child: MoonTextInput(
-                  controller: controller,
-                  focusNode: focusNode,
-                  keyboardType: TextInputType.number,
-                  // cursorColor: context.appTheme.inputCursor,
-                  style: SdTextStyle.body14(),
-                ),
+              child: MoonTextInput(
+                controller: controller,
+                focusNode: focusNode,
+                keyboardType: TextInputType.number,
+                // cursorColor: context.appTheme.inputCursor,
+                style: SdTextStyle.body14(),
               ),
             ),
             SdHorizontalSpacing(value: SdSpacingConstants.spacing6),
@@ -53,6 +51,7 @@ class SdAmountTextField extends StatelessWidget {
               ),
           ],
         ),
+        SdVerticalSpacing(value: SdSpacingConstants.spacing8),
       ],
     );
   }

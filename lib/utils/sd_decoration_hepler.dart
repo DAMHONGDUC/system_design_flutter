@@ -5,7 +5,7 @@ import 'package:system_design_flutter/resources/resources.dart';
 class SdDecorationHelper {
   static textFieldDecoration(
     BuildContext context, {
-    Color fillInputDefault = SdColors.black,
+    Color fillInputDefault = SdColors.white,
     Color borderInputDefault = SdColors.black,
   }) => InputDecoration(
     filled: true,

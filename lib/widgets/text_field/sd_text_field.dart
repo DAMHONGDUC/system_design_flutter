@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/utils/utils.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_horizontal_spacing.dart';
 import 'package:system_design_flutter/resources/resources.dart';
@@ -10,6 +11,7 @@ class SdTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final Widget? rightWidget;
   final bool readOnly;
+  final TextStyle? textStyle;
 
   const SdTextField({
     required this.controller,
@@ -18,6 +20,7 @@ class SdTextField extends StatelessWidget {
     this.onTap,
     this.rightWidget,
     this.readOnly = false,
+    this.textStyle,
     super.key,
   });
 
@@ -30,10 +33,11 @@ class SdTextField extends StatelessWidget {
           Text(title!),
           const SdVerticalSpacing(),
         ],
-        TextFormField(
+        MoonTextInput(
           controller: controller,
           cursorColor: SdColors.grey,
           readOnly: readOnly,
+          trailing: rightWidget,
           onTap:
               readOnly
                   ? () {
@@ -41,10 +45,7 @@ class SdTextField extends StatelessWidget {
                     onTap?.call();
                   }
                   : null,
-          decoration: SdDecorationHelper.textFieldDecoration(
-            context,
-          ).copyWith(suffixIcon: rightWidget),
-          style: SdTextStyle.body14(),
+          style: textStyle ?? SdTextStyle.body12(),
         ),
       ],
     );
