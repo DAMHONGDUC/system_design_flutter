@@ -31,4 +31,12 @@ class SdDecorationHelper {
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
   );
+
+  static boxShadow() {
+    return BoxShadow(
+      color: Color(0xFF1A000000),
+      spreadRadius: 2.sp,
+      blurRadius: 5.sp,
+    );
+  }
 }

@@ -40,6 +40,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: centerTitle,
       backgroundColor: backgroundColor,
+      // disable color change on scroll
+      surfaceTintColor: SdColors.transparent,
       actions: actions,
       leading: const SizedBox.shrink(),
       leadingWidth: 0,

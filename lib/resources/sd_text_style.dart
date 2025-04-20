@@ -84,4 +84,5 @@ extension TextStyleExt on TextStyle {
   TextStyle withColor(Color color) => copyWith(color: color);
   TextStyle size(double fontSize) => copyWith(fontSize: fontSize);
   TextStyle italic() => copyWith(fontStyle: FontStyle.italic);
+  TextStyle whiteText() => copyWith(color: SdColors.white);
 }
