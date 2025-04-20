@@ -15,7 +15,7 @@ export 'spacing/sd_vertical_spacing.dart';
 
 // Text Field
 export 'text_field/sd_text_field.dart';
-export 'text_field/sd_amount_text_field.dart';
+export 'text_field/sd_number_text_field.dart';
 
 // misc
 export 'misc/sd_divider.dart';

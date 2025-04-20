@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:system_design_flutter/utils/sd_color_helper.dart';
+import 'package:color_shade/color_shade.dart';
 
 class SdColors {
   SdColors._();
@@ -22,16 +22,16 @@ class SdColors {
 
   // Primary
   static const Color primaryLight = Color(0xFF3674B5);
-  static final List<Color> _shades = SdColorHelper.generateShades(primaryLight);
-  static final Color primary100 = _shades[8];
-  static final Color primary200 = _shades[7];
-  static final Color primary300 = _shades[6];
-  static final Color primary400 = _shades[5];
-  static final Color primary500 = _shades[4];
-  static final Color primary600 = _shades[3];
-  static final Color primary700 = _shades[2];
-  static final Color primary800 = _shades[1];
-  static final Color primary900 = _shades[0];
+  static final Color primary50 = primaryLight.shade50;
+  static final Color primary100 = primaryLight.shade100;
+  static final Color primary200 = primaryLight.shade200;
+  static final Color primary300 = primaryLight.shade300;
+  static final Color primary400 = primaryLight.shade400;
+  static final Color primary500 = primaryLight.shade500;
+  static final Color primary600 = primaryLight.shade600;
+  static final Color primary700 = primaryLight.shade700;
+  static final Color primary800 = primaryLight.shade800;
+  static final Color primary900 = primaryLight.shade900;
 
   // Backgrounds
   static const Color primaryBackground = Color(0xFFF6F8FA);

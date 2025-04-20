@@ -16,6 +16,7 @@ dependencies:
   moon_design: ^1.1.0
   logger: ^2.5.0
   drop_down_list: ^2.0.0
+  color_shade: ^1.0.1
 
 dev_dependencies:
   flutter_test:
