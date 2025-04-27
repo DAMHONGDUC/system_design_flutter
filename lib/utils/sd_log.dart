@@ -61,4 +61,8 @@ class SdLog {
   static void printError(String text) {
     print('[ERROR] => $text');
   }
+
+  static void normalDebug(Object? object) {
+    print('DEBUG => $object');
+  }
 }

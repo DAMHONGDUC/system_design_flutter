@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
-class SdNumberTextField extends StatelessWidget {
+class SdNumberTextField extends StatefulWidget {
   const SdNumberTextField({
     super.key,
     required this.controller,
@@ -13,6 +13,7 @@ class SdNumberTextField extends StatelessWidget {
     this.rightWidget,
     this.inputFormatters,
     this.allowClear = false,
+    this.onChanged,
   });
 
   final TextEditingController controller;
@@ -21,7 +22,13 @@ class SdNumberTextField extends StatelessWidget {
   final Widget? rightWidget;
   final List<TextInputFormatter>? inputFormatters;
   final bool allowClear;
+  final Function(String)? onChanged;
 
+  @override
+  State<SdNumberTextField> createState() => _SdNumberTextFieldState();
+}
+
+class _SdNumberTextFieldState extends State<SdNumberTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +36,7 @@ class SdNumberTextField extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
-          child: Text(title, style: SdTextStyle.body10()),
+          child: Text(widget.title, style: SdTextStyle.body10()),
         ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing2),
         Row(
@@ -38,32 +45,33 @@ class SdNumberTextField extends StatelessWidget {
             Flexible(
               flex: 7,
               child: MoonTextInput(
-                inputFormatters: inputFormatters,
-                controller: controller,
-                focusNode: focusNode,
+                inputFormatters: widget.inputFormatters,
+                controller: widget.controller,
+                focusNode: widget.focusNode,
                 keyboardType: TextInputType.number,
+                onChanged: widget.onChanged,
                 trailing:
-                    allowClear
+                    widget.allowClear
                         ? GestureDetector(
                           child: Icon(
                             MoonIcons.controls_close_small_24_light,
                             size: SdIconSize.size24,
                           ),
-                          onTap: () => controller.clear(),
+                          onTap: () {
+                            widget.controller.clear();
+                            widget.controller.text = '';
+                            setState(() {});
+                          },
                         )
                         : null,
-                // cursorColor: context.appTheme.inputCursor,
                 style: SdTextStyle.body14(),
               ),
             ),
             SdHorizontalSpacing(value: SdSpacingConstants.spacing6),
-            if (rightWidget != null)
+            if (widget.rightWidget != null)
               Flexible(
                 flex: 3,
-                child:
-                    rightWidget != null
-                        ? rightWidget!
-                        : const SizedBox.shrink(),
+                child: widget.rightWidget ?? const SizedBox.shrink(),
               ),
           ],
         ),
