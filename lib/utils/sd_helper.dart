@@ -23,18 +23,16 @@ class SdHelper {
             onSelected?.call(selectedValue);
           }
         },
-        dropDownHeaderPadding: EdgeInsets.only(
-          top: SdSpacingConstants.spacing10,
-        ),
+        dropDownHeaderPadding: EdgeInsets.zero,
         listViewSeparatorWidget: SizedBox.shrink(),
         listItemBuilder: (index, dataItem) {
           return Text(dataItem.data, style: SdTextStyle.body12());
         },
-        dropDownBackgroundColor: SdColors.white,
-        bottomSheetTitle: SdBottomSheetTopBar(
-          title: title,
-          closeButtonLeftGap: SdSpacingConstants.spacing10,
+        listTileContentPadding: EdgeInsets.symmetric(
+          horizontal: SdSpacingConstants.spacing16,
         ),
+        dropDownBackgroundColor: SdColors.white,
+        bottomSheetTitle: SdBottomSheetTopBar(title: title),
         initialChildSize: initialChildSize,
         minChildSize: 0.3,
         maxChildSize: 0.9,

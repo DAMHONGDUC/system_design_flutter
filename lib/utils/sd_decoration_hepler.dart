@@ -32,11 +32,11 @@ class SdDecorationHelper {
     ),
   );
 
-  static boxShadow() {
+  static boxShadow({int ratio = 1}) {
     return BoxShadow(
       color: Color(0xFF1A000000),
-      spreadRadius: 2.sp,
-      blurRadius: 5.sp,
+      spreadRadius: (2 * ratio).sp,
+      blurRadius: (5 * ratio).sp,
     );
   }
 }

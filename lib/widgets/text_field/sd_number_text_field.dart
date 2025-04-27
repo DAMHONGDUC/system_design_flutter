@@ -29,7 +29,7 @@ class SdNumberTextField extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
-          child: Text(title, style: SdTextStyle.body12()),
+          child: Text(title, style: SdTextStyle.body10()),
         ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing2),
         Row(

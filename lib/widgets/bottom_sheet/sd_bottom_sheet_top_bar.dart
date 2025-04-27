@@ -8,20 +8,14 @@ import 'package:system_design_flutter/resources/resources.dart';
 
 class SdBottomSheetTopBar extends StatelessWidget {
   final String? title;
-  final VoidCallback? onClose;
-  final double closeButtonLeftGap;
 
-  const SdBottomSheetTopBar({
-    super.key,
-    this.title,
-    this.onClose,
-    this.closeButtonLeftGap = 0,
-  });
+  const SdBottomSheetTopBar({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SdVerticalSpacing(),
         Container(
           width: SdSpacingConstants.spacing36,
           height: SdSpacingConstants.spacing6,
@@ -30,26 +24,18 @@ class SdBottomSheetTopBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(SdSpacingConstants.radius8),
           ),
         ),
-        SdVerticalSpacing(value: SdSpacingConstants.spacing6),
-        SizedBox(
-          height: SdSpacingConstants.spacing32,
-          width: double.infinity,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Positioned(
-                left: closeButtonLeftGap,
-                child: SdInkWell(
-                  padding: EdgeInsets.all(SdSpacingConstants.spacing4),
-                  onTap: onClose ?? () => Navigator.of(context).pop(),
-                  child: Icon(Icons.close, size: SdIconSize.size24),
-                ),
+        SdVerticalSpacing(),
+        if (title != null)
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: SdSpacingConstants.spacing16,
               ),
-              if (title != null) Text(title!, style: SdTextStyle.heading12()),
-            ],
+              child: Text(title!, style: SdTextStyle.heading14()),
+            ),
           ),
-        ),
-        SdDivider(),
+        SdVerticalSpacing(),
       ],
     );
   }
