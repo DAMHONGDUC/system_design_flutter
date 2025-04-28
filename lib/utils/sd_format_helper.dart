@@ -11,11 +11,12 @@ class SdFormatHelper {
     double amount, {
     bool withSymbol = true,
     bool alwaysShowDecimal = true,
+    int fractionDigits = 3,
   }) {
     MoneyFormatter fmf = MoneyFormatter(
       amount: amount,
       settings: MoneyFormatterSettings(
-        fractionDigits: 2,
+        fractionDigits: fractionDigits,
         thousandSeparator: ',',
         decimalSeparator: '.',
         symbol: '',
@@ -28,7 +29,7 @@ class SdFormatHelper {
     }
 
     if (!alwaysShowDecimal) {
-      return result.endsWith('.00') ? result.replaceAll('.00', '') : result;
+      return result.endsWith('.000') ? result.replaceAll('.000', '') : result;
     }
 
     return result;
@@ -45,7 +46,7 @@ class SdFormatHelper {
   static TextInputFormatter amountFormatter() {
     return TextInputFormatter.withFunction((oldValue, newValue) {
       String cleanText = newValue.text.replaceAll(',', '');
-      SdLog.normalDebug('cleanText => ${cleanText}');
+
       if (cleanText.isEmpty) {
         return newValue.copyWith(
           text: '',
@@ -58,16 +59,12 @@ class SdFormatHelper {
         return oldValue;
       }
 
-      SdLog.normalDebug('value => ${value}');
-
       // Format the value
       String newText = SdFormatHelper.formatMoneyFromDouble(
         value,
         withSymbol: false,
         alwaysShowDecimal: false,
       );
-
-      SdLog.normalDebug('newText => ${newText}');
 
       // Calculate the new cursor position
       int newCursorPosition =

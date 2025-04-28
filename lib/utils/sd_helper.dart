@@ -4,29 +4,33 @@ import 'package:flutter/material.dart';
 import 'package:system_design_flutter/index.dart';
 
 class SdHelper {
-  static void showBottomSheetDropDown({
+  static void showBottomSheetDropDown<T>({
     required BuildContext context,
     required TextEditingController controller,
-    required List<SelectedListItem<String>> data,
+    required List<SelectedListItem<T>> data,
+    required String Function(T data) itemLabelBuilder,
     String title = 'Select Item',
-    void Function(String selected)? onSelected,
+    void Function(T selected)? onSelected,
     double initialChildSize = 0.7,
   }) {
-    DropDownState<String>(
-      dropDown: DropDown<String>(
+    DropDownState<T>(
+      dropDown: DropDown<T>(
         isSearchVisible: false,
         data: data,
         onSelected: (selectedItems) {
           if (selectedItems.isNotEmpty) {
             final selectedValue = selectedItems.first.data;
-            controller.text = selectedValue;
+            controller.text = itemLabelBuilder(selectedValue);
             onSelected?.call(selectedValue);
           }
         },
         dropDownHeaderPadding: EdgeInsets.zero,
         listViewSeparatorWidget: SizedBox.shrink(),
         listItemBuilder: (index, dataItem) {
-          return Text(dataItem.data, style: SdTextStyle.body12());
+          return Text(
+            itemLabelBuilder(dataItem.data),
+            style: SdTextStyle.body12(),
+          );
         },
         listTileContentPadding: EdgeInsets.symmetric(
           horizontal: SdSpacingConstants.spacing16,

@@ -10,8 +10,18 @@ class SdColors {
   static const Color transparent = Colors.transparent;
 
   // Grey Tones
-  static const Color grey = Color(0xFF808080);
-  static const Color grey400 = Color(0xFFBDBDBD);
+  static const Color grey = Colors.grey;
+  static final Color grey50 = grey.shade50;
+  static final Color grey100 = grey.shade100;
+  static final Color grey200 = grey.shade200;
+  static final Color grey300 = grey.shade300;
+  static final Color grey400 = grey.shade400;
+  static final Color grey500 = grey.shade500;
+  static final Color grey600 = grey.shade600;
+  static final Color grey700 = grey.shade700;
+  static final Color grey800 = grey.shade800;
+  static final Color grey900 = grey.shade900;
+
   static const Color greyText = Color(0xFFA1A5B7);
 
   // Black Text

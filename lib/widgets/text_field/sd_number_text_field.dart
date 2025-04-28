@@ -14,6 +14,7 @@ class SdNumberTextField extends StatefulWidget {
     this.inputFormatters,
     this.allowClear = false,
     this.onChanged,
+    this.hintText,
   });
 
   final TextEditingController controller;
@@ -23,6 +24,7 @@ class SdNumberTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool allowClear;
   final Function(String)? onChanged;
+  final String? hintText;
 
   @override
   State<SdNumberTextField> createState() => _SdNumberTextFieldState();
@@ -45,6 +47,8 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
             Flexible(
               flex: 7,
               child: MoonTextInput(
+                hintText: widget.hintText,
+                hintTextColor: SdColors.grey600,
                 inputFormatters: widget.inputFormatters,
                 controller: widget.controller,
                 focusNode: widget.focusNode,
