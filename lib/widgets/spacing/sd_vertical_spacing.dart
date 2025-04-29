@@ -5,7 +5,7 @@ import 'package:system_design_flutter/resources/resources.dart';
 class SdHorizontalSpacing extends StatelessWidget {
   const SdHorizontalSpacing({super.key, this.value, this.xRatio = 1});
   final double? value;
-  final int xRatio;
+  final double xRatio;
 
   @override
   Widget build(BuildContext context) {
