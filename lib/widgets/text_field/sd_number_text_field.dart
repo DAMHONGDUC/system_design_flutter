@@ -40,7 +40,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
           padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
           child: Text(widget.title, style: SdTextStyle.body10()),
         ),
-        SdVerticalSpacing(value: SdSpacingConstants.spacing2),
+        SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

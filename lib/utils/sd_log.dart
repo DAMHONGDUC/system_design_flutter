@@ -17,52 +17,56 @@ class SdLog {
   static i(dynamic data) {
     if (kReleaseMode) {
       return;
-    } else {
-      logger.i(data);
     }
+    logger.i(data);
   }
 
   static d(dynamic data) {
     if (kReleaseMode) {
       return;
-    } else {
-      logger.d(data);
     }
+    logger.d(data);
   }
 
   static e(String tag, dynamic data) {
     if (kReleaseMode) {
       return;
-    } else {
-      errorLogger.e('$tag: $data');
     }
+    errorLogger.e('$tag: $data');
   }
 
   static simple(dynamic data) {
     if (kReleaseMode) {
       return;
-    } else {
-      simpleLogger.i(data);
     }
+    simpleLogger.i(data);
   }
 
   static d2(dynamic data1, dynamic data2) {
     if (kReleaseMode) {
       return;
-    } else {
-      logger.d("$data1 $data2");
     }
+    logger.d("$data1 $data2");
   }
 
   static void printInfo(String text) {
+    if (kReleaseMode) {
+      return;
+    }
     print('[INFO] => $text');
   }
 
   static void printError(String text) {
+    if (kReleaseMode) {
+      return;
+    }
     print('[ERROR] => $text');
   }
 
   static void normalDebug(Object? object) {
+    if (kReleaseMode) {
+      return;
+    }
     print('DEBUG => $object');
   }
 }

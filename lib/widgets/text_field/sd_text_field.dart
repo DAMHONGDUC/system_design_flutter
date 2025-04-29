@@ -31,7 +31,7 @@ class SdTextField extends StatelessWidget {
       children: [
         if (title.isNotNullAndNotEmpty) ...[
           Text(title!),
-          const SdVerticalSpacing(),
+          SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         ],
         MoonTextInput(
           controller: controller,
