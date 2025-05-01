@@ -29,6 +29,16 @@ class SdColors {
 
   // Red Tones
   static const Color red = Color(0xFFF00000);
+  static final Color red50 = red.shade50;
+  static final Color red100 = red.shade100;
+  static final Color red200 = red.shade200;
+  static final Color red300 = red.shade300;
+  static final Color red400 = red.shade400;
+  static final Color red500 = red.shade500;
+  static final Color red600 = red.shade600;
+  static final Color red700 = red.shade700;
+  static final Color red800 = red.shade800;
+  static final Color red900 = red.shade900;
 
   // Primary
   static const Color primaryLight = Color(0xFF3674B5);

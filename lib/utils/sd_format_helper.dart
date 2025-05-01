@@ -11,7 +11,7 @@ class SdFormatHelper {
     double amount, {
     bool withSymbol = true,
     bool alwaysShowDecimal = true,
-    int fractionDigits = 3,
+    int fractionDigits = 2,
   }) {
     MoneyFormatter fmf = MoneyFormatter(
       amount: amount,
@@ -29,7 +29,7 @@ class SdFormatHelper {
     }
 
     if (!alwaysShowDecimal) {
-      return result.endsWith('.000') ? result.replaceAll('.000', '') : result;
+      return result.endsWith('.00') ? result.replaceAll('.00', '') : result;
     }
 
     return result;

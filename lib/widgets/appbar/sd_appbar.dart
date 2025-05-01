@@ -20,6 +20,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final spacingWithEdge = SdSpacingConstants.spacing10;
+
     return AppBar(
       title: Row(
         children: [
@@ -35,7 +37,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           const SdHorizontalSpacing(),
-          Text(title, style: SdTextStyle.body14()),
+          Text(title, style: SdTextStyle.heading14()),
         ],
       ),
       centerTitle: centerTitle,
@@ -45,6 +47,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: actions,
       leading: const SizedBox.shrink(),
       leadingWidth: 0,
+      titleSpacing: spacingWithEdge,
+      actionsPadding: EdgeInsets.only(right: spacingWithEdge),
     );
   }
 
