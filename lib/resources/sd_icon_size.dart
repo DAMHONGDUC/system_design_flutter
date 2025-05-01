@@ -10,6 +10,7 @@ class SdIconSize {
   static final double size16 = 16.sp;
   static final double size18 = 18.sp;
   static final double size20 = 20.sp;
+  static final double size22 = 22.sp;
   static final double size24 = 24.sp;
   static final double size28 = 28.sp;
   static final double size32 = 32.sp;
