@@ -4,6 +4,7 @@ export 'appbar/sd_appbar.dart';
 // Bottom Sheet
 export 'bottom_sheet/sd_bottom_sheet_container.dart';
 export 'bottom_sheet/sd_bottom_sheet_top_bar.dart';
+export './bottom_sheet/sd_bottom_sheet.dart';
 
 // Button
 export 'button/sd_button.dart';

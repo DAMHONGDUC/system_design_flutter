@@ -1,6 +1,7 @@
 import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
 class SdHelper {
@@ -42,5 +43,47 @@ class SdHelper {
         maxChildSize: 0.9,
       ),
     ).showModal(context);
+  }
+
+  static void showSelectBottomSheet<T>({
+    required BuildContext context,
+    required List<SelectedListItem<T>> data,
+    required String Function(T data) itemLabelBuilder,
+    String title = 'Select Item',
+    void Function(T selected)? onSelected,
+  }) {
+    showMoonModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SdBottomSheet(
+          title: title,
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              final item = data[index].data;
+
+              return SdInkWell(
+                isButton: false,
+                padding: EdgeInsets.symmetric(
+                  horizontal: SdSpacingConstants.spacing16,
+                  vertical: SdSpacingConstants.spacing12,
+                ),
+                onTap: () {
+                  onSelected?.call(item);
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  itemLabelBuilder(item),
+                  style: SdTextStyle.body12(),
+                ),
+              );
+            },
+            itemCount: data.length,
+          ),
+        );
+      },
+    );
   }
 }

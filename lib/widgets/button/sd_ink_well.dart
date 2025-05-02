@@ -8,6 +8,7 @@ class SdInkWell extends StatelessWidget {
   final double borderRadius;
   final EdgeInsets? padding;
   final Color? containerBg;
+  final bool isButton;
 
   const SdInkWell({
     super.key,
@@ -16,6 +17,7 @@ class SdInkWell extends StatelessWidget {
     this.borderRadius = 100,
     this.padding,
     this.containerBg,
+    this.isButton = true,
   });
 
   @override
@@ -28,11 +30,14 @@ class SdInkWell extends StatelessWidget {
       child: Material(
         color: SdColors.transparent,
         child: InkWell(
-          customBorder: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
+          customBorder:
+              isButton
+                  ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  )
+                  : null,
           onTap: onTap,
-          child: Padding(
+          child: Container(
             padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing10),
             child: child,
           ),

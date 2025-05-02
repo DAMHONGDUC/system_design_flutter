@@ -35,7 +35,6 @@ class SdBottomSheetTopBar extends StatelessWidget {
               child: Text(title!, style: SdTextStyle.heading14()),
             ),
           ),
-        SdVerticalSpacing(),
       ],
     );
   }
