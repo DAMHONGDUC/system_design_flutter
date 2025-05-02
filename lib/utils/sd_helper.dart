@@ -1,53 +1,11 @@
-import 'package:drop_down_list/drop_down_list.dart';
-import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
 class SdHelper {
-  static void showBottomSheetDropDown<T>({
-    required BuildContext context,
-    required TextEditingController controller,
-    required List<SelectedListItem<T>> data,
-    required String Function(T data) itemLabelBuilder,
-    String title = 'Select Item',
-    void Function(T selected)? onSelected,
-    double initialChildSize = 0.7,
-  }) {
-    DropDownState<T>(
-      dropDown: DropDown<T>(
-        isSearchVisible: false,
-        data: data,
-        onSelected: (selectedItems) {
-          if (selectedItems.isNotEmpty) {
-            final selectedValue = selectedItems.first.data;
-            controller.text = itemLabelBuilder(selectedValue);
-            onSelected?.call(selectedValue);
-          }
-        },
-        dropDownHeaderPadding: EdgeInsets.zero,
-        listViewSeparatorWidget: SizedBox.shrink(),
-        listItemBuilder: (index, dataItem) {
-          return Text(
-            itemLabelBuilder(dataItem.data),
-            style: SdTextStyle.body12(),
-          );
-        },
-        listTileContentPadding: EdgeInsets.symmetric(
-          horizontal: SdSpacingConstants.spacing16,
-        ),
-        dropDownBackgroundColor: SdColors.white,
-        bottomSheetTitle: SdBottomSheetTopBar(title: title),
-        initialChildSize: initialChildSize,
-        minChildSize: 0.3,
-        maxChildSize: 0.9,
-      ),
-    ).showModal(context);
-  }
-
   static void showSelectBottomSheet<T>({
     required BuildContext context,
-    required List<SelectedListItem<T>> data,
+    required List<T> data,
     required String Function(T data) itemLabelBuilder,
     String title = 'Select Item',
     void Function(T selected)? onSelected,
@@ -62,7 +20,7 @@ class SdHelper {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              final item = data[index].data;
+              final item = data[index];
 
               return SdInkWell(
                 isButton: false,
@@ -85,5 +43,9 @@ class SdHelper {
         );
       },
     );
+  }
+
+  static Future delay({int milliseconds = 500}) async {
+    await Future.delayed(Duration(milliseconds: milliseconds));
   }
 }
