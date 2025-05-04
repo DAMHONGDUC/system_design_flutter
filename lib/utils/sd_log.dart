@@ -2,6 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart' as log;
 
 class SdLog {
+  static String getMsgWithColor(String msg) {
+    return '\x1B[33m$msg\x1B[0m';
+  }
+
   static var logger = log.Logger(
     printer: log.PrettyPrinter(methodCount: 0, colors: false, printTime: true),
   );
@@ -68,5 +72,17 @@ class SdLog {
       return;
     }
     print('DEBUG => $object');
+  }
+
+  static void printWarning(String message, {bool showMsgWrap = true}) {
+    if (kReleaseMode) {
+      return;
+    }
+
+    print(
+      showMsgWrap
+          ? getMsgWithColor('[WARNING] $message')
+          : getMsgWithColor('$message'),
+    );
   }
 }
