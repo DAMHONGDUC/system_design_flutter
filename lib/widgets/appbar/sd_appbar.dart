@@ -9,6 +9,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Color? backgroundColor;
   final bool centerTitle;
+  final bool showBackButton;
 
   const SdAppBar({
     super.key,
@@ -16,6 +17,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.backgroundColor,
     this.centerTitle = false,
+    this.showBackButton = true,
   });
 
   @override
@@ -25,23 +27,29 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Row(
         children: [
-          SdInkWell(
-            containerBg: const Color(0xFFECF0F4),
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Icon(
-              Icons.arrow_back_ios_rounded,
-              color: const Color(0xFF181C2E),
-              size: SdIconSize.size16,
+          if (showBackButton)
+            Row(
+              children: [
+                SdInkWell(
+                  containerBg: const Color(0xFFECF0F4),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: const Color(0xFF181C2E),
+                    size: SdIconSize.size16,
+                  ),
+                ),
+                const SdHorizontalSpacing(),
+              ],
             ),
-          ),
-          const SdHorizontalSpacing(),
+
           Text(title, style: SdTextStyle.heading14()),
         ],
       ),
       centerTitle: centerTitle,
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? Colors.white,
       // disable color change on scroll
       surfaceTintColor: SdColors.transparent,
       actions: actions,
@@ -49,6 +57,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 0,
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
+      elevation: SdSpacingConstants.spacing4,
+      shadowColor: Colors.black54,
     );
   }
 
