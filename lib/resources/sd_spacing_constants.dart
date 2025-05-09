@@ -18,6 +18,7 @@ class SdSpacingConstants {
   static final double spacing32 = 32.sp;
   static final double spacing36 = 36.sp;
   static final double spacing40 = 40.sp;
+  static final double spacing64 = 44.sp;
 
   // Radiuses
   static final double radius2 = 2.sp;
