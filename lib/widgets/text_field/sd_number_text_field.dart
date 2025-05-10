@@ -68,7 +68,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                           },
                         )
                         : null,
-                style: SdTextStyle.body14(),
+                style: SdTextStyle.body14().withColor(SdColors.blackText),
               ),
             ),
             SdHorizontalSpacing(value: SdSpacingConstants.spacing6),

@@ -18,7 +18,7 @@ class SdBottomSheetTopBar extends StatelessWidget {
         SdVerticalSpacing(),
         Container(
           width: SdSpacingConstants.spacing36,
-          height: SdSpacingConstants.spacing6,
+          height: SdSpacingConstants.spacing5,
           decoration: BoxDecoration(
             color: SdColors.grey400,
             borderRadius: BorderRadius.circular(SdSpacingConstants.radius8),

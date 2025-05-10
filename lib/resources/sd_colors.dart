@@ -58,12 +58,12 @@ class SdColors {
   static const Color secondaryBackground = Color(0xFFFFFFFF);
   static const Color snowMist = Color(0xFFFAFAFA);
 
-  // Icons
-  static const Color icon = Color(0xFF5F6367);
-
   // Toasts / Status
   static const Color success = Color(0xFF48AA54);
   static const Color error = Color(0xFFE7443C);
   static const Color info = Color(0xFF02AFCD);
   static const Color warning = Color(0xFFF2940B);
+
+  // Other
+  static const Color iconColor = Color(0xFF5f6367);
 }

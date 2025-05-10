@@ -30,7 +30,7 @@ class SdTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title.isNotNullAndNotEmpty) ...[
-          Text(title!),
+          Text(title!, style: SdTextStyle.body10()),
           SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         ],
         MoonTextInput(

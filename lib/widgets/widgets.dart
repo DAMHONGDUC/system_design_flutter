@@ -21,4 +21,7 @@ export 'text_field/sd_number_text_field.dart';
 // misc
 export 'misc/sd_divider.dart';
 export 'misc/sd_keyboard_dismisser.dart';
-export './misc/sd_icon.dart';
+export './misc/sd_image.dart';
+
+// icon
+export './icon/sd_icon.dart';

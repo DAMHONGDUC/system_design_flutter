@@ -6,6 +6,7 @@ class SdSpacingConstants {
   // Spacings
   static final double spacing2 = 2.sp;
   static final double spacing4 = 4.sp;
+  static final double spacing5 = 5.sp;
   static final double spacing6 = 6.sp;
   static final double spacing8 = 8.sp;
   static final double spacing10 = 10.sp;

@@ -37,7 +37,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                   },
                   child: Icon(
                     Icons.arrow_back_ios_rounded,
-                    color: const Color(0xFF181C2E),
+                    color: SdColors.iconColor,
                     size: SdIconSize.size16,
                   ),
                 ),

@@ -13,6 +13,8 @@ class SdFormatHelper {
     bool alwaysShowDecimal = true,
     int fractionDigits = 2,
   }) {
+    return amount.toString();
+
     MoneyFormatter fmf = MoneyFormatter(
       amount: amount,
       settings: MoneyFormatterSettings(
