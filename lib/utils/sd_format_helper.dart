@@ -1,5 +1,5 @@
+import 'package:currency_formatter/currency_formatter.dart';
 import 'package:flutter/services.dart';
-import 'package:money_formatter/money_formatter.dart';
 import 'package:system_design_flutter/utils/utils.dart';
 
 class SdFormatHelper {
@@ -7,31 +7,20 @@ class SdFormatHelper {
     return amount.replaceAll(',', '');
   }
 
-  static String formatMoneyFromDouble(
-    double amount, {
-    bool withSymbol = true,
-    bool alwaysShowDecimal = true,
-    int fractionDigits = 2,
-  }) {
-    return amount.toString();
-
-    MoneyFormatter fmf = MoneyFormatter(
-      amount: amount,
-      settings: MoneyFormatterSettings(
-        fractionDigits: fractionDigits,
-        thousandSeparator: ',',
-        decimalSeparator: '.',
-        symbol: '',
-      ),
+  static String formatMoneyFromDouble(double amount) {
+    CurrencyFormat settings = CurrencyFormat(
+      code: '',
+      symbol: '',
+      symbolSide: SymbolSide.none,
+      thousandSeparator: ',',
+      decimalSeparator: '.',
+      symbolSeparator: ' ',
     );
-    String result = fmf.output.nonSymbol;
 
-    if (withSymbol) {
-      result = fmf.output.symbolOnLeft;
-    }
+    String result = CurrencyFormatter.format(amount, settings);
 
-    if (!alwaysShowDecimal) {
-      return result.endsWith('.00') ? result.replaceAll('.00', '') : result;
+    if (result.contains('.') && result.endsWith('0')) {
+      return result.substring(0, result.length - 1);
     }
 
     return result;
@@ -47,6 +36,19 @@ class SdFormatHelper {
 
   static TextInputFormatter amountFormatter() {
     return TextInputFormatter.withFunction((oldValue, newValue) {
+      final text = newValue.text;
+
+      if (text.endsWith(',') || text.endsWith('.0')) return oldValue;
+
+      if (text.endsWith('.')) return newValue;
+
+      if (text.contains('.')) {
+        final parts = text.split('.');
+        if (parts.length > 1 && parts[1].length > 2) {
+          return oldValue;
+        }
+      }
+
       String cleanText = newValue.text.replaceAll(',', '');
 
       if (cleanText.isEmpty) {
@@ -62,11 +64,7 @@ class SdFormatHelper {
       }
 
       // Format the value
-      String newText = SdFormatHelper.formatMoneyFromDouble(
-        value,
-        withSymbol: false,
-        alwaysShowDecimal: false,
-      );
+      String newText = SdFormatHelper.formatMoneyFromDouble(value);
 
       // Calculate the new cursor position
       int newCursorPosition =

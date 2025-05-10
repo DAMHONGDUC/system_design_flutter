@@ -16,7 +16,7 @@ dependencies:
   moon_design: ^1.1.0
   logger: ^2.5.0
   color_shade: ^1.0.1
-  money_formatter: ^0.0.6
+  currency_formatter: ^2.2.3
 
 dev_dependencies:
   flutter_test:
