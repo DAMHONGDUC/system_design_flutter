@@ -38,7 +38,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                   },
                   child: SdIcon(
                     iconData: Icons.arrow_back_ios_rounded,
-                    iconSize: SdSpacingConstants.spacing16,
+                    iconSize: SdIconSize.size16,
                   ),
                 ),
                 const SdHorizontalSpacing(),
