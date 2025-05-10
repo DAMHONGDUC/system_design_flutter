@@ -48,4 +48,11 @@ class SdHelper {
   static Future delay({int milliseconds = 500}) async {
     await Future.delayed(Duration(milliseconds: milliseconds));
   }
+
+  static bool isAmountOverLimit(String value, {int? limit}) {
+    final cleaned = value.replaceAll(',', '');
+    final numValue = double.tryParse(cleaned) ?? 0;
+
+    return numValue > (limit ?? SdConstants.limitAmount);
+  }
 }

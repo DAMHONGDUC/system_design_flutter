@@ -15,6 +15,8 @@ class SdNumberTextField extends StatefulWidget {
     this.allowClear = false,
     this.onChanged,
     this.hintText,
+    this.limitValue,
+    this.onlyInt = false,
   });
 
   final TextEditingController controller;
@@ -25,12 +27,31 @@ class SdNumberTextField extends StatefulWidget {
   final bool allowClear;
   final Function(String)? onChanged;
   final String? hintText;
+  final int? limitValue;
+  final bool onlyInt;
 
   @override
   State<SdNumberTextField> createState() => _SdNumberTextFieldState();
 }
 
 class _SdNumberTextFieldState extends State<SdNumberTextField> {
+  bool _showError = false;
+  late int _limitValue;
+
+  @override
+  void initState() {
+    _limitValue = widget.limitValue ?? SdConstants.limitAmount;
+    super.initState();
+  }
+
+  void _onTapClear() {
+    widget.controller.clear();
+    widget.controller.text = '';
+    setState(() {
+      _showError = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,7 +70,19 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
               child: MoonTextInput(
                 hintText: widget.hintText,
                 hintTextColor: SdColors.grey600,
-                inputFormatters: widget.inputFormatters,
+                inputFormatters: [
+                  ...?widget.inputFormatters,
+                  if (widget.onlyInt) SdFormatHelper.intFormatter(),
+                  SdFormatHelper.limitFormatter(
+                    limit: _limitValue,
+                    currentErrorState: _showError,
+                    onErrorChanged: (showError) {
+                      setState(() {
+                        _showError = showError;
+                      });
+                    },
+                  ),
+                ],
                 controller: widget.controller,
                 focusNode: widget.focusNode,
                 keyboardType: TextInputType.number,
@@ -61,11 +94,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                             MoonIcons.controls_close_small_24_light,
                             size: SdIconSize.size24,
                           ),
-                          onTap: () {
-                            widget.controller.clear();
-                            widget.controller.text = '';
-                            setState(() {});
-                          },
+                          onTap: _onTapClear,
                         )
                         : null,
                 style: SdTextStyle.body14().withColor(SdColors.blackText),
@@ -79,6 +108,17 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
               ),
           ],
         ),
+        if (_showError)
+          Padding(
+            padding: EdgeInsets.only(
+              left: SdSpacingConstants.spacing2,
+              top: SdSpacingConstants.spacing2,
+            ),
+            child: Text(
+              'Max value is: ${SdFormatHelper.formatMoneyFromDouble(_limitValue.toDouble())}',
+              style: SdTextStyle.body9().withColor(SdColors.red),
+            ),
+          ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing8),
       ],
     );

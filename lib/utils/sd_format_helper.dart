@@ -26,19 +26,52 @@ class SdFormatHelper {
     return result;
   }
 
-  // static double rm00IfNeed(double amount) {
-  //   if (amount == amount.toInt()) {
-  //     amount.toString().split('.')[0];
-  //   }
+  static TextInputFormatter intFormatter() {
+    return TextInputFormatter.withFunction((oldValue, newValue) {
+      final isNumeric = RegExp(r'^\d*$');
+      if (isNumeric.hasMatch(newValue.text)) {
+        return newValue;
+      }
+      return oldValue;
+    });
+  }
 
-  //   return amount;
-  // }
+  static TextInputFormatter limitFormatter({
+    int? limit,
+    required void Function(bool showError) onErrorChanged,
+    required bool currentErrorState,
+  }) {
+    return TextInputFormatter.withFunction((oldValue, newValue) {
+      final isOverLimit = SdHelper.isAmountOverLimit(
+        newValue.text,
+        limit: limit,
+      );
+
+      if (isOverLimit) {
+        if (!currentErrorState) {
+          onErrorChanged(true);
+        }
+        return oldValue;
+      }
+
+      if (currentErrorState) {
+        onErrorChanged(false);
+      }
+
+      return newValue;
+    });
+  }
 
   static TextInputFormatter amountFormatter() {
     return TextInputFormatter.withFunction((oldValue, newValue) {
       final text = newValue.text;
+      final isValid = RegExp(r'^[0-9.,]*$').hasMatch(text);
 
-      if (text.endsWith(',') || text.endsWith('.0')) return oldValue;
+      if (!isValid ||
+          text.endsWith(',') ||
+          text.endsWith('.0') ||
+          text.endsWith('..'))
+        return oldValue;
 
       if (text.endsWith('.')) return newValue;
 
