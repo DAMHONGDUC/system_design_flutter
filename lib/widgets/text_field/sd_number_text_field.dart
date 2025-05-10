@@ -90,9 +90,8 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                 trailing:
                     widget.allowClear
                         ? GestureDetector(
-                          child: Icon(
-                            MoonIcons.controls_close_small_24_light,
-                            size: SdIconSize.size24,
+                          child: SdIcon(
+                            iconData: MoonIcons.controls_close_small_24_light,
                           ),
                           onTap: _onTapClear,
                         )

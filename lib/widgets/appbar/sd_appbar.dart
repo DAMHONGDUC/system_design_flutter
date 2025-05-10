@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/theme/theme.dart';
 import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
+import 'package:system_design_flutter/widgets/icon/sd_icon.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_vertical_spacing.dart';
 
 class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -35,10 +36,9 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: Icon(
-                    Icons.arrow_back_ios_rounded,
-                    color: SdColors.iconColor,
-                    size: SdIconSize.size16,
+                  child: SdIcon(
+                    iconData: Icons.arrow_back_ios_rounded,
+                    iconSize: SdSpacingConstants.spacing16,
                   ),
                 ),
                 const SdHorizontalSpacing(),
