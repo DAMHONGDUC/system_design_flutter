@@ -65,5 +65,5 @@ class SdColors {
   static final Color black54 = Colors.black54;
   static final Color black12 = Colors.black12;
 
-  static final Color grey12 = grey.withValues(alpha: 0.12);
+  static final Color grey5 = grey.withValues(alpha: 0.05);
 }

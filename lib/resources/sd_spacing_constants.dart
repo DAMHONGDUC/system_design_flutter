@@ -4,6 +4,7 @@ class SdSpacingConstants {
   SdSpacingConstants._();
 
   // Spacings
+  static final double spacing1 = 1.sp;
   static final double spacing2 = 2.sp;
   static final double spacing3 = 3.sp;
   static final double spacing4 = 4.sp;
