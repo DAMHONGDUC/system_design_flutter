@@ -13,6 +13,7 @@ class SdTextField extends StatelessWidget {
   final bool readOnly;
   final TextStyle? textStyle;
   final Color? textColor;
+  final Color? activeBorderColor;
 
   const SdTextField({
     required this.controller,
@@ -23,6 +24,7 @@ class SdTextField extends StatelessWidget {
     this.readOnly = false,
     this.textStyle,
     this.textColor,
+    this.activeBorderColor,
     super.key,
   });
 
@@ -51,6 +53,7 @@ class SdTextField extends StatelessWidget {
                   }
                   : null,
           style: textStyle ?? SdTextStyle.body12(),
+          activeBorderColor: activeBorderColor,
         ),
       ],
     );

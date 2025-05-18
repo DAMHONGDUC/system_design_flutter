@@ -19,6 +19,7 @@ class SdNumberTextField extends StatefulWidget {
     this.onlyInt = false,
     this.textColor,
     this.inputHintColor,
+    this.activeBorderColor,
   });
 
   final TextEditingController controller;
@@ -33,6 +34,7 @@ class SdNumberTextField extends StatefulWidget {
   final bool onlyInt;
   final Color? textColor;
   final Color? inputHintColor;
+  final Color? activeBorderColor;
 
   @override
   State<SdNumberTextField> createState() => _SdNumberTextFieldState();
@@ -102,11 +104,13 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                         ? GestureDetector(
                           child: SdIcon(
                             iconData: MoonIcons.controls_close_small_24_light,
+                            color: widget.inputHintColor,
                           ),
                           onTap: _onTapClear,
                         )
                         : null,
                 style: SdTextStyle.body14(),
+                activeBorderColor: widget.activeBorderColor,
               ),
             ),
             SdHorizontalSpacing(value: SdSpacingConstants.spacing6),
