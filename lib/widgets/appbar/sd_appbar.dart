@@ -63,7 +63,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 0,
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
-      elevation: SdSpacingConstants.spacing2,
+      elevation: SdSpacingConstants.spacing3,
       shadowColor: shadowColor ?? SdColors.black54,
     );
   }

@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:color_shade/color_shade.dart';
 
 // SdColors is a class that contains fixed colors such as red, green, and blue, rather than semantic colors like primary, secondary, or iconColor,...
+// 50: Very light tint of the color.
+// 100: Light tint of the color.
+// 200: Lighter shade, slightly darker than the previous one.
+// 300: Light shade.
+// 400: Standard shade, typically used for primary elements.
+// 500: Primary color.
+// 600: Dark shade, slightly darker than the primary color.
+// 700: Darker shade.
+// 800: Very dark shade.
+// 900: The darkest shade of the color.
+
 class SdColors {
   SdColors._();
 
@@ -50,6 +61,9 @@ class SdColors {
   static final Color red800 = red.shade800;
   static final Color red900 = red.shade900;
 
-  // Other 
-   static final Color black54 = Colors.black54;
+  // Other
+  static final Color black54 = Colors.black54;
+  static final Color black12 = Colors.black12;
+
+  static final Color grey12 = grey.withValues(alpha: 0.12);
 }
