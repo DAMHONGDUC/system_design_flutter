@@ -18,6 +18,7 @@ class SdNumberTextField extends StatefulWidget {
     this.limitValue,
     this.onlyInt = false,
     this.textColor,
+    this.inputHintColor,
   });
 
   final TextEditingController controller;
@@ -31,6 +32,7 @@ class SdNumberTextField extends StatefulWidget {
   final int? limitValue;
   final bool onlyInt;
   final Color? textColor;
+  final Color? inputHintColor;
 
   @override
   State<SdNumberTextField> createState() => _SdNumberTextFieldState();
@@ -77,7 +79,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
               flex: 7,
               child: MoonTextInput(
                 hintText: widget.hintText,
-                hintTextColor: SdColors.grey600,
+                hintTextColor: widget.inputHintColor ?? SdColors.grey600,
                 inputFormatters: [
                   ...?widget.inputFormatters,
                   if (widget.onlyInt) SdFormatHelper.intFormatter(),

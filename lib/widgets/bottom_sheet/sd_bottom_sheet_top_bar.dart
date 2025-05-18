@@ -8,8 +8,8 @@ import 'package:system_design_flutter/resources/resources.dart';
 
 class SdBottomSheetTopBar extends StatelessWidget {
   final String? title;
-
-  const SdBottomSheetTopBar({super.key, this.title});
+  final Color? textColor;
+  const SdBottomSheetTopBar({super.key, this.title, this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,10 @@ class SdBottomSheetTopBar extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: SdSpacingConstants.spacing16,
               ),
-              child: Text(title!, style: SdTextStyle.heading14()),
+              child: Text(
+                title!,
+                style: SdTextStyle.heading14().copyWith(color: textColor),
+              ),
             ),
           ),
       ],

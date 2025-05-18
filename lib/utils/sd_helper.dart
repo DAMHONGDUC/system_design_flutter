@@ -9,12 +9,16 @@ class SdHelper {
     required String Function(T data) itemLabelBuilder,
     String title = 'Select Item',
     void Function(T selected)? onSelected,
+    Color? bgColor,
+    Color? textColor,
   }) {
     showMoonModalBottomSheet(
       context: context,
       builder: (context) {
         return SdBottomSheet(
           title: title,
+          bgColor: bgColor,
+          textColor: textColor,
           child: ListView.builder(
             padding: EdgeInsets.zero,
             shrinkWrap: true,
@@ -34,7 +38,7 @@ class SdHelper {
                 },
                 child: Text(
                   itemLabelBuilder(item),
-                  style: SdTextStyle.body12(),
+                  style: SdTextStyle.body12().copyWith(color: textColor),
                 ),
               );
             },
