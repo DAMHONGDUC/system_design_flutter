@@ -32,13 +32,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               children: [
                 SdInkWell(
-                  containerBg: const Color(0xFFECF0F4),
+                  containerBg: SdColors.grey100,
                   onTap: () {
                     Navigator.of(context).pop();
                   },
                   child: SdIcon(
                     iconData: Icons.arrow_back_ios_rounded,
                     iconSize: SdIconSize.size16,
+                    color: SdColors.black,
                   ),
                 ),
                 const SdHorizontalSpacing(),
@@ -58,7 +59,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
       elevation: SdSpacingConstants.spacing4,
-      shadowColor: Colors.black54,
+      shadowColor: SdColors.darkShadow,
     );
   }
 
