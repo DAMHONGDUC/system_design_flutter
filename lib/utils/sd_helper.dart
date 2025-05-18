@@ -12,13 +12,20 @@ class SdHelper {
     Color? bgColor,
     Color? textColor,
   }) {
+    final borderRadius = BorderRadius.only(
+      topLeft: Radius.circular(SdSpacingConstants.radius10),
+      topRight: Radius.circular(SdSpacingConstants.radius10),
+    );
+
     showMoonModalBottomSheet(
       context: context,
+      borderRadius: borderRadius,
       builder: (context) {
         return SdBottomSheet(
           title: title,
           bgColor: bgColor,
           textColor: textColor,
+          borderRadius: borderRadius,
           child: ListView.builder(
             padding: EdgeInsets.zero,
             shrinkWrap: true,
@@ -49,8 +56,8 @@ class SdHelper {
     );
   }
 
-  static Future delay({int milliseconds = 500}) async {
-    await Future.delayed(Duration(milliseconds: milliseconds));
+  static Future delay({int milliseconds = 500, void Function()? action}) async {
+    await Future.delayed(Duration(milliseconds: milliseconds), action);
   }
 
   static bool isAmountOverLimit(String value, {int? limit}) {
