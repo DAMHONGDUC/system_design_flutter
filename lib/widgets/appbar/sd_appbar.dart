@@ -13,6 +13,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackButton;
   final Color? textColor;
   final Color? shadowColor;
+  final Color? backButtonContainerBg;
+  final Color? backButtonIconColor;
 
   const SdAppBar({
     super.key,
@@ -23,6 +25,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBackButton = true,
     this.textColor,
     this.shadowColor,
+    this.backButtonContainerBg,
+    this.backButtonIconColor,
   });
 
   @override
@@ -36,13 +40,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               children: [
                 SdInkWell(
-                  containerBg: SdColors.grey100,
+                  containerBg: backButtonContainerBg ?? SdColors.grey100,
                   onTap: () {
                     Navigator.of(context).pop();
                   },
                   child: SdIcon(
                     iconData: Icons.arrow_back_ios_rounded,
                     iconSize: SdIconSize.size16,
+                    color: backButtonIconColor,
                   ),
                 ),
                 const SdHorizontalSpacing(),

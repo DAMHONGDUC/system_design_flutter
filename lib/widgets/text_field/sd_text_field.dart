@@ -12,6 +12,7 @@ class SdTextField extends StatelessWidget {
   final Widget? rightWidget;
   final bool readOnly;
   final TextStyle? textStyle;
+  final Color? textColor;
 
   const SdTextField({
     required this.controller,
@@ -21,6 +22,7 @@ class SdTextField extends StatelessWidget {
     this.rightWidget,
     this.readOnly = false,
     this.textStyle,
+    this.textColor,
     super.key,
   });
 
@@ -30,7 +32,10 @@ class SdTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title.isNotNullAndNotEmpty) ...[
-          Text(title!, style: SdTextStyle.body10()),
+          Text(
+            title!,
+            style: SdTextStyle.body10().copyWith(color: textColor).wMedium(),
+          ),
           SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         ],
         MoonTextInput(

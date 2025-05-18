@@ -17,6 +17,7 @@ class SdNumberTextField extends StatefulWidget {
     this.hintText,
     this.limitValue,
     this.onlyInt = false,
+    this.textColor,
   });
 
   final TextEditingController controller;
@@ -29,6 +30,7 @@ class SdNumberTextField extends StatefulWidget {
   final String? hintText;
   final int? limitValue;
   final bool onlyInt;
+  final Color? textColor;
 
   @override
   State<SdNumberTextField> createState() => _SdNumberTextFieldState();
@@ -59,7 +61,13 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
       children: [
         Padding(
           padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
-          child: Text(widget.title, style: SdTextStyle.body10()),
+          child: Text(
+            widget.title,
+            style:
+                SdTextStyle.body10()
+                    .copyWith(color: widget.textColor)
+                    .wMedium(),
+          ),
         ),
         SdVerticalSpacing(value: SdSpacingConstants.spacing4),
         Row(
@@ -96,7 +104,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                           onTap: _onTapClear,
                         )
                         : null,
-                style: SdTextStyle.body14().withColor(SdColors.black),
+                style: SdTextStyle.body14(),
               ),
             ),
             SdHorizontalSpacing(value: SdSpacingConstants.spacing6),
