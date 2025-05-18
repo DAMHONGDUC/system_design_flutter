@@ -11,6 +11,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
   final bool centerTitle;
   final bool showBackButton;
+  final Color? textColor;
+  final Color? shadowColor;
 
   const SdAppBar({
     super.key,
@@ -19,6 +21,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.centerTitle = false,
     this.showBackButton = true,
+    this.textColor,
+    this.shadowColor,
   });
 
   @override
@@ -39,14 +43,15 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: SdIcon(
                     iconData: Icons.arrow_back_ios_rounded,
                     iconSize: SdIconSize.size16,
-                    color: SdColors.black,
                   ),
                 ),
                 const SdHorizontalSpacing(),
               ],
             ),
-
-          Text(title, style: SdTextStyle.heading14()),
+          Text(
+            title,
+            style: SdTextStyle.heading14().copyWith(color: textColor),
+          ),
         ],
       ),
       centerTitle: centerTitle,
@@ -58,8 +63,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 0,
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
-      elevation: SdSpacingConstants.spacing4,
-      shadowColor: SdColors.darkShadow,
+      elevation: SdSpacingConstants.spacing2,
+      shadowColor: shadowColor ?? SdColors.black54,
     );
   }
 

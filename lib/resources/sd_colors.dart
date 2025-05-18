@@ -51,5 +51,5 @@ class SdColors {
   static final Color red900 = red.shade900;
 
   // Other 
-   static final Color darkShadow = Colors.black54;
+   static final Color black54 = Colors.black54;
 }
