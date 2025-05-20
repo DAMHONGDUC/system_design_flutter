@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/theme/theme.dart';
 import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
@@ -34,38 +37,31 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     final spacingWithEdge = SdSpacingConstants.spacing10;
 
     return AppBar(
-      title: Row(
-        children: [
-          if (showBackButton)
-            Row(
-              children: [
-                SdInkWell(
-                  containerBg: backButtonContainerBg ?? SdColors.grey100,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: SdIcon(
-                    iconData: Icons.arrow_back_ios_rounded,
-                    iconSize: SdIconSize.size16,
-                    color: backButtonIconColor,
-                  ),
-                ),
-                const SdHorizontalSpacing(),
-              ],
-            ),
-          Text(
-            title,
-            style: SdTextStyle.heading14().copyWith(color: textColor),
-          ),
-        ],
+      title: Text(
+        title,
+        style: SdTextStyle.heading14().copyWith(color: textColor),
       ),
       centerTitle: centerTitle,
       backgroundColor: backgroundColor ?? Colors.white,
       // disable color change on scroll
       surfaceTintColor: SdColors.transparent,
       actions: actions,
-      leading: const SizedBox.shrink(),
-      leadingWidth: 0,
+      leading:
+          showBackButton
+              ? SdInkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: SdIcon(
+                  iconData:
+                      Platform.isAndroid
+                          ? Icons.arrow_back
+                          : Icons.arrow_back_ios_rounded,
+                  iconSize: SdIconSize.size20,
+                  color: backButtonIconColor,
+                ),
+              )
+              : null,
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
       elevation: SdSpacingConstants.spacing1,
