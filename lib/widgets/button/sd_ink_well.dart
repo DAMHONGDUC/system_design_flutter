@@ -5,10 +5,9 @@ import 'package:system_design_flutter/resources/resources.dart';
 class SdInkWell extends StatelessWidget {
   final void Function()? onTap;
   final Widget child;
-  final double borderRadius;
+  final double? borderRadius;
   final EdgeInsets? padding;
   final Color? containerBg;
-  final bool isButton;
 
   const SdInkWell({
     super.key,
@@ -17,25 +16,25 @@ class SdInkWell extends StatelessWidget {
     this.borderRadius = 100,
     this.padding,
     this.containerBg,
-    this.isButton = true,
   });
 
   @override
   Widget build(BuildContext context) {
+    final defaultBorderRadius = borderRadius ?? SdSpacingConstants.spacing12;
+
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
         color: containerBg,
       ),
       child: Material(
         color: SdColors.transparent,
         child: InkWell(
-          customBorder:
-              isButton
-                  ? RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadius),
-                  )
-                  : null,
+          customBorder: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(defaultBorderRadius),
+            ),
+          ),
           onTap: onTap,
           child: Container(
             padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing10),

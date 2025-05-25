@@ -25,7 +25,7 @@ class SdBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SdBottomSheetTopBar(title: title, textColor: textColor),
-          SdVerticalSpacing(),
+          if (title != null) SdVerticalSpacing(),
           child,
           SdVerticalSpacing(),
         ],

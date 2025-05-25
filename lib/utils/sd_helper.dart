@@ -7,7 +7,7 @@ class SdHelper {
     required BuildContext context,
     required List<T> data,
     required String Function(T data) itemLabelBuilder,
-    String title = 'Select Item',
+    String? title,
     void Function(T selected)? onSelected,
     Color? bgColor,
     Color? textColor,
@@ -34,7 +34,7 @@ class SdHelper {
               final item = data[index];
 
               return SdInkWell(
-                isButton: false,
+                borderRadius: 0,
                 padding: EdgeInsets.symmetric(
                   horizontal: SdSpacingConstants.spacing16,
                   vertical: SdSpacingConstants.spacing12,
