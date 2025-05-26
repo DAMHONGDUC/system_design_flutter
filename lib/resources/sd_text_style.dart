@@ -51,6 +51,8 @@ class SdTextStyle extends SdBaseTextStyle {
       SdBaseTextStyle.base(fontSize: 10.sp, fontWeight: FontWeight.w600);
   static TextStyle heading12() =>
       SdBaseTextStyle.base(fontSize: 12.sp, fontWeight: FontWeight.w600);
+  static TextStyle heading13() =>
+      SdBaseTextStyle.base(fontSize: 13.sp, fontWeight: FontWeight.w600);
   static TextStyle heading14() =>
       SdBaseTextStyle.base(fontSize: 14.sp, fontWeight: FontWeight.w600);
   static TextStyle heading16() =>

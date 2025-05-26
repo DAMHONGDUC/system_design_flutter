@@ -9,7 +9,7 @@ import 'package:system_design_flutter/widgets/icon/sd_icon.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_vertical_spacing.dart';
 
 class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
   final List<Widget>? actions;
   final Color? backgroundColor;
   final bool centerTitle;
@@ -18,10 +18,11 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? shadowColor;
   final Color? backButtonContainerBg;
   final Color? backButtonIconColor;
+  final Widget? titleWidget;
 
   const SdAppBar({
     super.key,
-    required this.title,
+    this.title,
     this.actions,
     this.backgroundColor,
     this.centerTitle = false,
@@ -30,6 +31,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.shadowColor,
     this.backButtonContainerBg,
     this.backButtonIconColor,
+    this.titleWidget,
   });
 
   @override
@@ -37,10 +39,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     final spacingWithEdge = SdSpacingConstants.spacing10;
 
     return AppBar(
-      title: Text(
-        title,
-        style: SdTextStyle.heading14().copyWith(color: textColor),
-      ),
+      title:
+          titleWidget ??
+          (title != null
+              ? Text(
+                title!,
+                style: SdTextStyle.heading14().copyWith(color: textColor),
+              )
+              : null),
       centerTitle: centerTitle,
       backgroundColor: backgroundColor ?? Colors.white,
       // disable color change on scroll
