@@ -2,12 +2,12 @@ import 'package:currency_formatter/currency_formatter.dart';
 import 'package:flutter/services.dart';
 import 'package:system_design_flutter/utils/utils.dart';
 
-class SdFormatHelper {
-  static String getCleanAmountFromString(String amount) {
+class SdCurrencyFormatHelper {
+  static String cleanString(String amount) {
     return amount.replaceAll(',', '');
   }
 
-  static String formatMoneyFromDouble(double amount) {
+  static String formatCurrencyFromDouble(double amount) {
     CurrencyFormat settings = CurrencyFormat(
       code: '',
       symbol: '',
@@ -97,7 +97,7 @@ class SdFormatHelper {
       }
 
       // Format the value
-      String newText = SdFormatHelper.formatMoneyFromDouble(value);
+      String newText = SdCurrencyFormatHelper.formatCurrencyFromDouble(value);
 
       // Calculate the new cursor position
       int newCursorPosition =

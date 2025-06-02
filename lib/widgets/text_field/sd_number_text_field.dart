@@ -84,8 +84,8 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                 hintTextColor: widget.inputHintColor ?? SdColors.grey600,
                 inputFormatters: [
                   ...?widget.inputFormatters,
-                  if (widget.onlyInt) SdFormatHelper.intFormatter(),
-                  SdFormatHelper.limitFormatter(
+                  if (widget.onlyInt) SdCurrencyFormatHelper.intFormatter(),
+                  SdCurrencyFormatHelper.limitFormatter(
                     limit: _limitValue,
                     currentErrorState: _showError,
                     onErrorChanged: (showError) {
@@ -125,7 +125,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
           Padding(
             padding: EdgeInsets.only(left: SdSpacing.s2, top: SdSpacing.s2),
             child: Text(
-              'Max value is: ${SdFormatHelper.formatMoneyFromDouble(_limitValue.toDouble())}',
+              'Max value is: ${SdCurrencyFormatHelper.formatCurrencyFromDouble(_limitValue.toDouble())}',
               style: SdTextStyle.body9().withColor(SdColors.red),
             ),
           ),

@@ -12,24 +12,6 @@ void main() {
 
 String _appbarStory = 'Widgets/AppBar';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) => Storybook(
-    wrapperBuilder: (context, child) => materialWrapper(child),
-    initialStory: _appbarStory,
-    plugins: initializePlugins(
-      initialDeviceFrameData: (
-        isFrameVisible: true,
-        device: Devices.ios.iPhone13,
-        orientation: Orientation.portrait,
-      ),
-    ),
-    stories: [SdAppBarStory(name: _appbarStory, description: 'app bar sample')],
-  );
-}
-
 Widget materialWrapper(Widget? child) {
   return ScreenUtilInit(
     fontSizeResolver: (num fontSize, ScreenUtil instance) {
@@ -48,5 +30,23 @@ Widget materialWrapper(Widget? child) {
       debugShowCheckedModeBanner: false,
       home: Scaffold(body: Center(child: child)),
     ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) => Storybook(
+    wrapperBuilder: (context, child) => materialWrapper(child),
+    initialStory: _appbarStory,
+    plugins: initializePlugins(
+      initialDeviceFrameData: (
+        isFrameVisible: true,
+        device: Devices.ios.iPhone13,
+        orientation: Orientation.portrait,
+      ),
+    ),
+    stories: [SdAppBarStory(name: _appbarStory, description: 'app bar sample')],
   );
 }
