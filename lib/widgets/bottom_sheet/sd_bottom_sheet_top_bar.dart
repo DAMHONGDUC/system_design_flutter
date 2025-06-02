@@ -17,11 +17,11 @@ class SdBottomSheetTopBar extends StatelessWidget {
       children: [
         SdVerticalSpacing(),
         Container(
-          width: SdSpacingConstants.spacing36,
-          height: SdSpacingConstants.spacing5,
+          width: SdSpacing.s36,
+          height: SdSpacing.s5,
           decoration: BoxDecoration(
             color: SdColors.grey400,
-            borderRadius: BorderRadius.circular(SdSpacingConstants.radius8),
+            borderRadius: BorderRadius.circular(SdSpacing.s8),
           ),
         ),
         SdVerticalSpacing(),
@@ -29,9 +29,7 @@ class SdBottomSheetTopBar extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: SdSpacingConstants.spacing16,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: SdSpacing.s16),
               child: Text(
                 title!,
                 style: SdTextStyle.heading14().copyWith(color: textColor),

@@ -20,7 +20,7 @@ class SdInkWell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final defaultBorderRadius = borderRadius ?? SdSpacingConstants.spacing12;
+    final defaultBorderRadius = borderRadius ?? SdSpacing.s12;
 
     return Container(
       decoration: BoxDecoration(
@@ -37,7 +37,7 @@ class SdInkWell extends StatelessWidget {
           ),
           onTap: onTap,
           child: Container(
-            padding: padding ?? EdgeInsets.all(SdSpacingConstants.spacing10),
+            padding: padding ?? EdgeInsets.all(SdSpacing.s10),
             child: child,
           ),
         ),

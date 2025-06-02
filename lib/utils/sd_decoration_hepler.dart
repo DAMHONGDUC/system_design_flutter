@@ -11,23 +11,23 @@ class SdDecorationHelper {
     filled: true,
     fillColor: fillInputDefault,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(SdSpacingConstants.spacing12),
+      borderRadius: BorderRadius.circular(SdSpacing.s12),
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(SdSpacingConstants.spacing12),
+      borderRadius: BorderRadius.circular(SdSpacing.s12),
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(SdSpacingConstants.spacing12),
+      borderRadius: BorderRadius.circular(SdSpacing.s12),
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(SdSpacingConstants.spacing12),
+      borderRadius: BorderRadius.circular(SdSpacing.s12),
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(SdSpacingConstants.spacing12),
+      borderRadius: BorderRadius.circular(SdSpacing.s12),
       borderSide: BorderSide(width: 1.sp, color: borderInputDefault),
     ),
   );

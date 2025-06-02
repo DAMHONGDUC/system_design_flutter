@@ -64,7 +64,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: SdSpacingConstants.spacing2),
+          padding: EdgeInsets.only(left: SdSpacing.s2),
           child: Text(
             widget.title,
             style:
@@ -73,7 +73,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                     .wMedium(),
           ),
         ),
-        SdVerticalSpacing(value: SdSpacingConstants.spacing4),
+        SdVerticalSpacing(value: SdSpacing.s4),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -113,7 +113,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                 activeBorderColor: widget.activeBorderColor,
               ),
             ),
-            SdHorizontalSpacing(value: SdSpacingConstants.spacing6),
+            SdHorizontalSpacing(value: SdSpacing.s6),
             if (widget.rightWidget != null)
               Flexible(
                 flex: 3,
@@ -123,16 +123,13 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
         ),
         if (_showError)
           Padding(
-            padding: EdgeInsets.only(
-              left: SdSpacingConstants.spacing2,
-              top: SdSpacingConstants.spacing2,
-            ),
+            padding: EdgeInsets.only(left: SdSpacing.s2, top: SdSpacing.s2),
             child: Text(
               'Max value is: ${SdFormatHelper.formatMoneyFromDouble(_limitValue.toDouble())}',
               style: SdTextStyle.body9().withColor(SdColors.red),
             ),
           ),
-        SdVerticalSpacing(value: SdSpacingConstants.spacing8),
+        SdVerticalSpacing(value: SdSpacing.s8),
       ],
     );
   }

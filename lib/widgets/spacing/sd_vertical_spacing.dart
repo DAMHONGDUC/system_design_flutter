@@ -9,6 +9,6 @@ class SdHorizontalSpacing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: (value ?? SdSpacingConstants.spacing12) * xRatio);
+    return SizedBox(width: (value ?? SdSpacing.s12) * xRatio);
   }
 }

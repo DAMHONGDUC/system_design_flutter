@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,20 +6,18 @@ import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/storybook/appbar/sd_appbar_story.dart';
 import 'package:system_design_flutter/theme/theme.dart';
 
-void main() async {
-  final savedThemeMode = await AdaptiveTheme.getThemeMode();
-  runApp(MyApp(savedThemeMode: savedThemeMode));
+void main() {
+  runApp(const MyApp());
 }
 
 String _appbarStory = 'Widgets/AppBar';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, this.savedThemeMode});
-  final AdaptiveThemeMode? savedThemeMode;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) => Storybook(
-    wrapperBuilder: (context, child) => materialWrapper(child, savedThemeMode),
+    wrapperBuilder: (context, child) => materialWrapper(child),
     initialStory: _appbarStory,
     plugins: initializePlugins(
       initialDeviceFrameData: (
@@ -33,27 +30,23 @@ class MyApp extends StatelessWidget {
   );
 }
 
-Widget materialWrapper(Widget? child, AdaptiveThemeMode? savedThemeMode) {
-  return AdaptiveTheme(
-    light: CustomTheme.light(fontFamily: SdConstants.sdFontFamily),
-    dark: CustomTheme.dark(fontFamily: SdConstants.sdFontFamily),
-    initial: savedThemeMode ?? AdaptiveThemeMode.system,
-    builder:
-        (theme, darkTheme) => ScreenUtilInit(
-          fontSizeResolver: (num fontSize, ScreenUtil instance) {
-            return kIsWeb
-                ? fontSize * 1.1944444444444444
-                : instance.setWidth(fontSize);
-          },
-          designSize: SdConstants.designSize,
-          minTextAdapt: true,
-          splitScreenMode: true,
-          child: MaterialApp(
-            theme: theme,
-            darkTheme: darkTheme,
-            debugShowCheckedModeBanner: false,
-            home: Scaffold(body: Center(child: child)),
-          ),
-        ),
+Widget materialWrapper(Widget? child) {
+  return ScreenUtilInit(
+    fontSizeResolver: (num fontSize, ScreenUtil instance) {
+      return kIsWeb
+          ? fontSize * 1.1944444444444444
+          : instance.setWidth(fontSize);
+    },
+    designSize: SdConstants.designSize,
+    minTextAdapt: true,
+    splitScreenMode: true,
+    child: MaterialApp(
+      theme: SdTheme.light(fontFamily: SdConstants.sdFontFamily),
+      darkTheme: SdTheme.dark(fontFamily: SdConstants.sdFontFamily),
+      themeMode:
+          ThemeMode.system, // Optional: switch to .light or .dark if needed
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(body: Center(child: child)),
+    ),
   );
 }

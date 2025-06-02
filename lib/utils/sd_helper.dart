@@ -13,8 +13,8 @@ class SdHelper {
     Color? textColor,
   }) {
     final borderRadius = BorderRadius.only(
-      topLeft: Radius.circular(SdSpacingConstants.radius10),
-      topRight: Radius.circular(SdSpacingConstants.radius10),
+      topLeft: Radius.circular(SdSpacing.s10),
+      topRight: Radius.circular(SdSpacing.s10),
     );
 
     showMoonModalBottomSheet(
@@ -36,8 +36,8 @@ class SdHelper {
               return SdInkWell(
                 borderRadius: 0,
                 padding: EdgeInsets.symmetric(
-                  horizontal: SdSpacingConstants.spacing16,
-                  vertical: SdSpacingConstants.spacing12,
+                  horizontal: SdSpacing.s16,
+                  vertical: SdSpacing.s12,
                 ),
                 onTap: () {
                   onSelected?.call(item);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:system_design_flutter/resources/sd_spacing_constants.dart';
+import 'package:system_design_flutter/resources/sd_spacing.dart';
 import 'package:system_design_flutter/widgets/widgets.dart';
 
 class SdBottomSheet extends StatelessWidget {

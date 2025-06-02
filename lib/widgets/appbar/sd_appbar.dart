@@ -36,7 +36,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacingWithEdge = SdSpacingConstants.spacing10;
+    final spacingWithEdge = SdSpacing.s10;
 
     return AppBar(
       title:
@@ -63,14 +63,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                       Platform.isAndroid
                           ? Icons.arrow_back
                           : Icons.arrow_back_ios_rounded,
-                  iconSize: SdIconSize.size20,
+                  iconSize: SdSpacing.s20,
                   color: backButtonIconColor,
                 ),
               )
               : null,
       titleSpacing: spacingWithEdge,
       actionsPadding: EdgeInsets.only(right: spacingWithEdge),
-      elevation: SdSpacingConstants.spacing1,
+      elevation: SdSpacing.s1,
       shadowColor: shadowColor ?? SdColors.black54,
     );
   }

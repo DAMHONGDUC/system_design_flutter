@@ -17,7 +17,7 @@ class SdIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = iconSize ?? SdIconSize.size20;
+    final size = iconSize ?? SdSpacing.s20;
 
     if (iconData != null) {
       return Icon(iconData, color: color ?? SdColors.grey600, size: size);

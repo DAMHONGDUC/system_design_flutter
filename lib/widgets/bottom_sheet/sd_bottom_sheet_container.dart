@@ -9,7 +9,7 @@ class SdBottomSheetContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(SdSpacingConstants.spacing12),
+      padding: EdgeInsets.all(SdSpacing.s12),
       color: SdColors.white,
       child: Column(
         mainAxisSize: MainAxisSize.min,

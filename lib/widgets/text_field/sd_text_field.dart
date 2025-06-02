@@ -38,7 +38,7 @@ class SdTextField extends StatelessWidget {
             title!,
             style: SdTextStyle.body10().copyWith(color: textColor).wMedium(),
           ),
-          SdVerticalSpacing(value: SdSpacingConstants.spacing4),
+          SdVerticalSpacing(value: SdSpacing.s4),
         ],
         MoonTextInput(
           controller: controller,
