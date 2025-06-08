@@ -126,7 +126,7 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
             padding: EdgeInsets.only(left: SdSpacing.s2, top: SdSpacing.s2),
             child: Text(
               'Max value is: ${SdCurrencyFormatHelper.formatCurrencyFromDouble(_limitValue.toDouble())}',
-              style: SdTextStyle.body9().withColor(SdColors.red),
+              style: SdTextStyle.body9().wColor(SdColors.red),
             ),
           ),
         SdVerticalSpacing(value: SdSpacing.s8),
