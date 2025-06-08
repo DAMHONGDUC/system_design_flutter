@@ -12,7 +12,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   storybook_flutter: ^0.14.1
-  adaptive_theme: ^3.6.0
   moon_design: ^1.1.0
   logger: ^2.5.0
   color_shade: ^1.0.1
