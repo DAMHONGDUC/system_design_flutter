@@ -58,6 +58,8 @@ class SdTextStyle extends SdBaseTextStyle {
       SdBaseTextStyle.base().wSemiBold().wSize(20.sp);
   static TextStyle heading24() =>
       SdBaseTextStyle.base().wSemiBold().wSize(24.sp);
+  static TextStyle heading28() =>
+      SdBaseTextStyle.base().wSemiBold().wSize(28.sp);
   static TextStyle heading32() =>
       SdBaseTextStyle.base().wSemiBold().wSize(32.sp);
   static TextStyle heading40() =>
