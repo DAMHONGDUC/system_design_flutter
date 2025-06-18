@@ -13,7 +13,7 @@ class SdAppBarStory extends Story {
               child: Scaffold(
                 backgroundColor: SdColors.white,
                 appBar: SdAppBar(
-                  title: 'app bar sample',
+                  titleText: 'app bar sample',
                   backgroundColor: SdColors.white,
                 ),
                 body: Center(child: Text('App Bar Sample')),
