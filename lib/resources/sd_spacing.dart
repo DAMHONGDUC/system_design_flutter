@@ -9,6 +9,7 @@ class SdSpacing {
   static final double s4 = 4.sp;
   static final double s5 = 5.sp;
   static final double s6 = 6.sp;
+  static final double s7 = 7.sp;
   static final double s8 = 8.sp;
   static final double s10 = 10.sp;
   static final double s12 = 12.sp;
