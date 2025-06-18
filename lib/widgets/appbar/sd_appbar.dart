@@ -6,7 +6,7 @@ import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
 import 'package:system_design_flutter/widgets/icon/sd_icon.dart';
 
 class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String? title;
+  final String? titleText;
   final List<Widget>? actions;
   final Color? backgroundColor;
   final bool centerTitle;
@@ -21,7 +21,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const SdAppBar({
     super.key,
-    this.title,
+    this.titleText,
     this.actions,
     this.backgroundColor,
     this.centerTitle = false,
@@ -42,9 +42,9 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title:
           titleWidget ??
-          (title != null
+          (titleText != null
               ? Text(
-                title!,
+                titleText!,
                 style: SdTextStyle.heading14().copyWith(color: textColor),
               )
               : null),

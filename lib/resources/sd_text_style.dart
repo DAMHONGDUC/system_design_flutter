@@ -82,7 +82,7 @@ extension TextStyleExt on TextStyle {
   TextStyle wBold() => copyWith(fontWeight: FontWeight.w700);
   TextStyle wColor(Color color) => copyWith(color: color);
   TextStyle wSize(double fontSize) => copyWith(fontSize: fontSize);
-  TextStyle wFontFamify(String fontFamily) => copyWith(fontFamily: fontFamily);
+  TextStyle wFontFamily(String fontFamily) => copyWith(fontFamily: fontFamily);
   TextStyle wItalic() => copyWith(fontStyle: FontStyle.italic);
   TextStyle whiteText() => copyWith(color: SdColors.white);
 }
