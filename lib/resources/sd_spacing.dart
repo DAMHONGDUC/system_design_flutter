@@ -22,6 +22,8 @@ class SdSpacing {
   static final double s32 = 32.sp;
   static final double s36 = 36.sp;
   static final double s40 = 40.sp;
+  static final double s48 = 48.sp;
+  static final double s56 = 56.sp;
   static final double s64 = 64.sp;
   static final double s100 = 100.sp;
 }
