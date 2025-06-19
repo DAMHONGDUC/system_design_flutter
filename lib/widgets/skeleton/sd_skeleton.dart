@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
+import 'package:system_design_flutter/resources/sd_spacing.dart';
 
 class SdSkeleton extends StatelessWidget {
   final double? width;
   final double? height;
-  final BorderRadius? borderRadius;
+  final double? borderRadius;
 
   const SdSkeleton({super.key, this.width, this.height, this.borderRadius});
 
@@ -24,7 +25,9 @@ class SdSkeleton extends StatelessWidget {
             height: height,
             decoration: BoxDecoration(
               color: SdColors.grey50,
-              borderRadius: borderRadius ?? BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(
+                borderRadius ?? SdSpacing.s12,
+              ),
             ),
           ),
         ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
@@ -58,6 +60,12 @@ class SdHelper {
 
   static Future delay({int milliseconds = 500, void Function()? action}) async {
     await Future.delayed(Duration(milliseconds: milliseconds), action);
+  }
+
+  static Future<void> delayLoading() async {
+    final random = Random();
+    final milliseconds = 1000 + random.nextInt(2000);
+    await Future.delayed(Duration(milliseconds: milliseconds));
   }
 
   static bool isAmountOverLimit(String value, {int? limit}) {
