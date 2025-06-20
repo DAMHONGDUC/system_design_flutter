@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart' as log;
+import 'dart:developer' as developer;
 
 class SdLog {
   static String getMsgWithColor(String msg) {
-    return '\x1B[33m$msg\x1B[0m';
+    return '\x1B[32m$msg\x1B[0m';
   }
 
   static var logger = log.Logger(
@@ -79,7 +80,7 @@ class SdLog {
       return;
     }
 
-    print(
+    developer.log(
       showMsgWrap
           ? getMsgWithColor('[WARNING] $message')
           : getMsgWithColor('$message'),

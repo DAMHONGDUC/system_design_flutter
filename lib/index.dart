@@ -8,4 +8,4 @@ export 'resources/resources.dart';
 export 'utils/utils.dart';
 
 // misc
-export './misc/misc.dart';
+export 'config/misc.dart';
