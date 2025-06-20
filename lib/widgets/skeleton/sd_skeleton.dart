@@ -7,8 +7,15 @@ class SdSkeleton extends StatelessWidget {
   final double? width;
   final double? height;
   final double? borderRadius;
+  final Widget? customChild;
 
-  const SdSkeleton({super.key, this.width, this.height, this.borderRadius});
+  const SdSkeleton({
+    super.key,
+    this.width,
+    this.height,
+    this.borderRadius,
+    this.customChild,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +27,18 @@ class SdSkeleton extends StatelessWidget {
       child: Skeleton(
         isLoading: true,
         skeleton: SkeletonItem(
-          child: Container(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(
-              color: SdColors.grey50,
-              borderRadius: BorderRadius.circular(
-                borderRadius ?? SdSpacing.s12,
+          child:
+              customChild ??
+              Container(
+                width: width,
+                height: height,
+                decoration: BoxDecoration(
+                  color: SdColors.grey50,
+                  borderRadius: BorderRadius.circular(
+                    borderRadius ?? SdSpacing.s12,
+                  ),
+                ),
               ),
-            ),
-          ),
         ),
         child: const SizedBox(),
       ),
