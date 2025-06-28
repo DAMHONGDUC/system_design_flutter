@@ -22,6 +22,7 @@ export 'text_field/sd_number_text_field.dart';
 export 'misc/sd_divider.dart';
 export 'misc/sd_keyboard_dismisser.dart';
 export './misc/sd_image.dart';
+export './misc/sd_separated.dart';
 
 // icon
 export './icon/sd_icon.dart';
