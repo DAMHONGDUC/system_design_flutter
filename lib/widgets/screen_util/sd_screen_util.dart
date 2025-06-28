@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 
 class SdScreenUtil extends StatelessWidget {
-  const SdScreenUtil({super.key, required this.child});
-  final Widget child;
+  const SdScreenUtil({super.key, this.child, this.builder});
+
+  final Widget? child;
+  final Widget Function(BuildContext, Widget?)? builder;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class SdScreenUtil extends StatelessWidget {
         return instance.setWidth(fontSize);
       },
       child: child,
+      builder: builder,
     );
   }
 }
