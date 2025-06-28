@@ -56,7 +56,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
           showBackButton
               ? SdInkWell(
                 onTap: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).canPop();
                 },
                 child: SdIcon(
                   iconData:

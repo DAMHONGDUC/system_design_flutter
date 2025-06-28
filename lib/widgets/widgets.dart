@@ -23,6 +23,7 @@ export 'misc/sd_divider.dart';
 export 'misc/sd_keyboard_dismisser.dart';
 export './misc/sd_image.dart';
 export './misc/sd_separated.dart';
+export './misc/sd_scroll_config.dart';
 
 // icon
 export './icon/sd_icon.dart';
