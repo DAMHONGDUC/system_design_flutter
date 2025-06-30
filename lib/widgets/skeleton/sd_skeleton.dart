@@ -6,15 +6,17 @@ import 'package:system_design_flutter/resources/sd_spacing.dart';
 class SdSkeleton extends StatelessWidget {
   final double? width;
   final double? height;
-  final double? borderRadius;
+  final double? borderRadiusValue;
   final Widget? customChild;
+  final BorderRadiusGeometry? borderRadius;
 
   const SdSkeleton({
     super.key,
     this.width,
     this.height,
-    this.borderRadius,
+    this.borderRadiusValue,
     this.customChild,
+    this.borderRadius,
   });
 
   @override
@@ -33,10 +35,10 @@ class SdSkeleton extends StatelessWidget {
                 width: width,
                 height: height,
                 decoration: BoxDecoration(
-                  color: SdColors.grey50,
-                  borderRadius: BorderRadius.circular(
-                    borderRadius ?? SdSpacing.s12,
-                  ),
+                  color: SdColors.grey.withValues(alpha: 0.8),
+                  borderRadius:
+                      borderRadius ??
+                      BorderRadius.circular(borderRadiusValue ?? SdSpacing.s12),
                 ),
               ),
         ),

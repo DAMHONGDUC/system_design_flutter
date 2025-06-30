@@ -7,6 +7,7 @@ class SdImage extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? boxFit;
+  final double? borderRadiusValue;
 
   const SdImage({
     Key? key,
@@ -14,26 +15,31 @@ class SdImage extends StatelessWidget {
     this.width,
     this.height,
     this.boxFit = BoxFit.cover,
+    this.borderRadiusValue,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imagePath,
-      width: width,
-      height: height,
-      fit: boxFit,
-      errorBuilder: (context, error, stackTrace) {
-        return Container(
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            color: Colors.grey[300],
-            border: Border.all(color: Colors.grey),
-          ),
-          child: SdIcon(iconData: Icons.broken_image, color: SdColors.grey),
-        );
-      },
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
+      child: Image.asset(
+        imagePath,
+        width: width,
+        height: height,
+        fit: boxFit,
+        errorBuilder: (context, error, stackTrace) {
+          return Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
+            ),
+            child: SdIcon(iconData: Icons.broken_image, color: SdColors.grey),
+          );
+        },
+      ),
     );
   }
 }
