@@ -1,29 +1,27 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SdSpacing {
   SdSpacing._();
 
-  static final double s1 = 1.sp;
-  static final double s2 = 2.sp;
-  static final double s3 = 3.sp;
-  static final double s4 = 4.sp;
-  static final double s5 = 5.sp;
-  static final double s6 = 6.sp;
-  static final double s7 = 7.sp;
-  static final double s8 = 8.sp;
-  static final double s10 = 10.sp;
-  static final double s12 = 12.sp;
-  static final double s14 = 14.sp;
-  static final double s16 = 16.sp;
-  static final double s18 = 18.sp;
-  static final double s20 = 20.sp;
-  static final double s24 = 24.sp;
-  static final double s28 = 28.sp;
-  static final double s32 = 32.sp;
-  static final double s36 = 36.sp;
-  static final double s40 = 40.sp;
-  static final double s48 = 48.sp;
-  static final double s56 = 56.sp;
-  static final double s64 = 64.sp;
-  static final double s100 = 100.sp;
+  static const double s1 = 1;
+  static const double s2 = 2;
+  static const double s3 = 3;
+  static const double s4 = 4;
+  static const double s5 = 5;
+  static const double s6 = 6;
+  static const double s7 = 7;
+  static const double s8 = 8;
+  static const double s10 = 10;
+  static const double s12 = 12;
+  static const double s14 = 14;
+  static const double s16 = 16;
+  static const double s18 = 18;
+  static const double s20 = 20;
+  static const double s24 = 24;
+  static const double s28 = 28;
+  static const double s32 = 32;
+  static const double s36 = 36;
+  static const double s40 = 40;
+  static const double s48 = 48;
+  static const double s56 = 56;
+  static const double s64 = 64;
+  static const double s100 = 100;
 }

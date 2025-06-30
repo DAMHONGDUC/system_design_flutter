@@ -28,9 +28,6 @@ export './misc/sd_scroll_config.dart';
 // icon
 export './icon/sd_icon.dart';
 
-// screen utils
-export './screen_util/sd_screen_util.dart';
-
 // go route
 export './route/sd_go_route.dart';
 

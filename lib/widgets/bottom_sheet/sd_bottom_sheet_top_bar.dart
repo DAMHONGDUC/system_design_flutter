@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:system_design_flutter/theme/theme.dart';
-import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
-import 'package:system_design_flutter/widgets/misc/sd_divider.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_horizontal_spacing.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 
