@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:system_design_flutter/index.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
 
@@ -10,6 +11,7 @@ class SdIcon extends StatelessWidget {
     this.iconSize,
     this.color,
   });
+
   final IconData? iconData;
   final String? iconPath;
   final double? iconSize;
@@ -18,15 +20,25 @@ class SdIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = iconSize ?? SdSpacing.s24;
+    final iconColor = color ?? SdColors.grey600;
 
     if (iconData != null) {
-      return Icon(iconData, color: color ?? SdColors.grey600, size: size);
+      return Icon(iconData, color: iconColor, size: size);
     }
 
     if (iconPath.isNotNullAndNotEmpty) {
-      return Image.asset(iconPath!, width: size, height: size);
+      if (iconPath!.toLowerCase().endsWith('.svg')) {
+        return SvgPicture.asset(
+          iconPath!,
+          width: size,
+          height: size,
+          colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+        );
+      } else {
+        return Image.asset(iconPath!, width: size, height: size);
+      }
     }
 
-    return SizedBox.shrink();
+    return const SizedBox.shrink();
   }
 }
