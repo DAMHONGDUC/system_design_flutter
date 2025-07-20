@@ -20,6 +20,8 @@ class SdSpacing {
   static const double s32 = 32;
   static const double s36 = 36;
   static const double s40 = 40;
+  static const double s44 = 44;
+  static const double s46 = 46;
   static const double s48 = 48;
   static const double s56 = 56;
   static const double s64 = 64;
