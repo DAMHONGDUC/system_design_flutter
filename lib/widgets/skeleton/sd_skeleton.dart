@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
 import 'package:system_design_flutter/resources/sd_spacing.dart';
+import 'package:system_design_flutter/utils/sd_log.dart';
 
 class SdSkeleton extends StatelessWidget {
   final double? width;
@@ -23,6 +24,10 @@ class SdSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SkeletonTheme(
       shimmerGradient: LinearGradient(
+        colors: [SdColors.grey100, SdColors.grey50, SdColors.grey100],
+        stops: const [0.1, 0.5, 0.9],
+      ),
+      darkShimmerGradient: LinearGradient(
         colors: [SdColors.grey100, SdColors.grey50, SdColors.grey100],
         stops: const [0.1, 0.5, 0.9],
       ),
