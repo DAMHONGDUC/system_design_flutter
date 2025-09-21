@@ -13,11 +13,11 @@ class SdBottomSheetTopBar extends StatelessWidget {
       children: [
         SdVerticalSpacing(),
         Container(
-          width: SdSpacing.s36,
-          height: SdSpacing.s5,
+          width: 50,
+          height: 5,
           decoration: BoxDecoration(
-            color: SdColors.grey400,
-            borderRadius: BorderRadius.circular(SdSpacing.s8),
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         SdVerticalSpacing(),

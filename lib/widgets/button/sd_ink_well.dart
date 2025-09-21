@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:system_design_flutter/theme/theme.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 
 class SdInkWell extends StatelessWidget {
@@ -8,6 +7,7 @@ class SdInkWell extends StatelessWidget {
   final double? borderRadius;
   final EdgeInsets? padding;
   final Color? containerBg;
+  final bool isFlat;
 
   const SdInkWell({
     super.key,
@@ -16,15 +16,20 @@ class SdInkWell extends StatelessWidget {
     this.borderRadius = 100,
     this.padding,
     this.containerBg,
+    this.isFlat = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    final defaultBorderRadius = borderRadius ?? SdSpacing.s12;
+    final defaultBorderRadius = borderRadius ?? SdSpacing.s100;
+    final defautPadding = padding ?? EdgeInsets.all(SdSpacing.s12);
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
+        borderRadius:
+            isFlat
+                ? null
+                : BorderRadius.all(Radius.circular(defaultBorderRadius)),
         color: containerBg,
       ),
       child: Material(
@@ -37,7 +42,7 @@ class SdInkWell extends StatelessWidget {
           ),
           onTap: onTap,
           child: Container(
-            padding: padding ?? EdgeInsets.all(SdSpacing.s10),
+            padding: isFlat ? null : defautPadding,
             child: child,
           ),
         ),
