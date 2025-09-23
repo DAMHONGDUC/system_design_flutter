@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
 
-import 'adaptive_status_bar.dart';
+import 'sd_adaptive_status_bar.dart';
 
-class SafeAreaScaffold extends StatelessWidget {
-  const SafeAreaScaffold({
+class SdSafeAreaScaffold extends StatelessWidget {
+  const SdSafeAreaScaffold({
     super.key,
     this.backgroundColor,
     this.contentColor,
@@ -75,7 +75,7 @@ class SafeAreaScaffold extends StatelessWidget {
     final finalBgColor = backgroundColor ?? SdColors.white;
     final finalContentColor = contentColor ?? SdColors.white;
 
-    return AdaptiveStatusBar(
+    return SdAdaptiveStatusBar(
       backgroundColor: finalBgColor,
       child: Scaffold(
         key: key,

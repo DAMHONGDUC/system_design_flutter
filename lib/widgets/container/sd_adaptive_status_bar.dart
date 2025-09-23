@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 /// A widget that automatically detects and sets the status bar icon color
 /// based on the background color.
-class AdaptiveStatusBar extends StatelessWidget {
+class SdAdaptiveStatusBar extends StatelessWidget {
   /// The child widget to be wrapped.
   final Widget child;
 
@@ -25,7 +25,7 @@ class AdaptiveStatusBar extends StatelessWidget {
   /// Override navigation bar icon brightness.
   final Brightness? navigationBarIconBrightness;
 
-  const AdaptiveStatusBar({
+  const SdAdaptiveStatusBar({
     super.key,
     required this.child,
     required this.backgroundColor,
