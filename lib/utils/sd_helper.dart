@@ -74,4 +74,15 @@ class SdHelper {
 
     return numValue > (limit ?? SdConstants.limitAmount);
   }
+
+static  double randomDouble({double min = 1.0, double max = 5.0}) {
+    final random = Random();
+    final value = random.nextDouble() * (max - min) + min;
+    return double.parse(value.toStringAsFixed(1));
+  }
+
+ static int randomInt({int min = 1, int max = 5}) {
+    final random = Random();
+    return random.nextInt(max - min + 1) + min;
+  }
 }
