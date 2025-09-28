@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
@@ -82,5 +84,11 @@ class SdHelper {
   static int randomInt({int min = 1, int max = 5}) {
     final random = Random();
     return random.nextInt(max - min + 1) + min;
+  }
+
+  static IconData getAppBarBackIcon() {
+    return Platform.isAndroid
+        ? Icons.arrow_back
+        : Ionicons.chevron_back_outline;
   }
 }

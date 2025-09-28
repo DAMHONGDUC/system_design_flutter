@@ -27,6 +27,7 @@ export './misc/sd_scroll_config.dart';
 
 // icon
 export './icon/sd_icon.dart';
+export './icon/sd_fading_icon.dart';
 
 // go route
 export './route/sd_go_route.dart';
@@ -40,3 +41,4 @@ export 'list/sd_list_view.dart';
 // container
 export 'container/sd_safe_area_scaffold.dart';
 export 'container/sd_adaptive_status_bar.dart';
+export './container/sd_fade_wrapper.dart';

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/resources.dart';
+import 'package:system_design_flutter/utils/sd_helper.dart';
 import 'package:system_design_flutter/widgets/button/sd_ink_well.dart';
 import 'package:system_design_flutter/widgets/icon/sd_icon.dart';
 
@@ -59,10 +60,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Navigator.of(context).maybePop();
                 },
                 child: SdIcon(
-                  iconData:
-                      Platform.isAndroid
-                          ? Icons.arrow_back
-                          : Icons.arrow_back_ios_rounded,
+                  iconData: SdHelper.getAppBarBackIcon(),
                   iconSize: SdSpacing.s20,
                   color: backButtonIconColor,
                 ),
