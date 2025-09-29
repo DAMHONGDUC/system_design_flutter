@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system_design_flutter/resources/sd_colors.dart';
 import 'package:system_design_flutter/resources/sd_spacing.dart';
 import 'package:system_design_flutter/utils/utils.dart';
 import 'package:system_design_flutter/widgets/image/sd_image.dart';
@@ -8,7 +9,6 @@ class SdVideoPlaceHolder extends StatelessWidget {
   final double width;
   final double height;
   final BoxFit fit;
-  final Color? iconColor;
   final bool isAsset;
 
   const SdVideoPlaceHolder({
@@ -17,7 +17,6 @@ class SdVideoPlaceHolder extends StatelessWidget {
     required this.width,
     required this.height,
     this.fit = BoxFit.cover,
-    this.iconColor,
     this.isAsset = false,
   });
 
@@ -27,20 +26,20 @@ class SdVideoPlaceHolder extends StatelessWidget {
       future: SdAssetHelper.getVideoThumbnailFromAsset(videoPath: videoPath),
       builder: (context, snapshot) {
         final imagePath = snapshot.data;
-        
+
         return Container(
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color: Colors.black12,
-            borderRadius: BorderRadius.circular(8),
+            color: SdColors.grey,
+            borderRadius: BorderRadius.circular(SdSpacing.s8),
           ),
           child: Stack(
             alignment: Alignment.center,
             children: [
               if (imagePath != null)
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(SdSpacing.s8),
                   child: SdImage(
                     imagePath: imagePath,
                     width: width,
@@ -50,7 +49,7 @@ class SdVideoPlaceHolder extends StatelessWidget {
               Icon(
                 Icons.play_circle_fill,
                 size: SdSpacing.s40,
-                color: iconColor,
+                color: SdColors.white,
               ),
             ],
           ),
