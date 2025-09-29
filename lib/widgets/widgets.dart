@@ -21,7 +21,6 @@ export 'text_field/sd_number_text_field.dart';
 // misc
 export 'misc/sd_divider.dart';
 export 'misc/sd_keyboard_dismisser.dart';
-export './misc/sd_image.dart';
 export './misc/sd_separated.dart';
 export './misc/sd_scroll_config.dart';
 
@@ -42,3 +41,9 @@ export 'list/sd_list_view.dart';
 export 'container/sd_safe_area_scaffold.dart';
 export 'container/sd_adaptive_status_bar.dart';
 export './container/sd_fade_wrapper.dart';
+
+// image
+export 'image/sd_image.dart';
+
+// video
+export 'video/sd_video_placeholder.dart';

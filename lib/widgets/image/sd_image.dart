@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/sd_colors.dart';
-import 'package:system_design_flutter/utils/sd_extensions.dart';
 import 'package:system_design_flutter/widgets/icon/sd_icon.dart';
 
 class SdImage extends StatelessWidget {
@@ -27,7 +26,7 @@ class SdImage extends StatelessWidget {
       return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: Image.asset(
-          imagePath!,
+          imagePath,
           width: width,
           height: height,
           fit: boxFit,
