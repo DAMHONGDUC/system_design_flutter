@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:system_design_flutter/resources/sd_colors.dart';
-import 'package:system_design_flutter/resources/sd_spacing.dart';
-import 'package:system_design_flutter/utils/utils.dart';
-import 'package:system_design_flutter/widgets/image/sd_image.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:system_design_flutter/index.dart';
+import 'package:system_design_flutter/model/asset_video_metadata.dart';
 
 class SdVideoPlaceHolder extends StatelessWidget {
   final String videoPath;
@@ -14,18 +13,18 @@ class SdVideoPlaceHolder extends StatelessWidget {
   const SdVideoPlaceHolder({
     super.key,
     required this.videoPath,
-    required this.width,
-    required this.height,
+    this.width = 80.0,
+    this.height = 80.0,
     this.fit = BoxFit.cover,
     this.isAsset = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<String?>(
-      future: SdAssetHelper.getVideoThumbnailFromAsset(videoPath: videoPath),
+    return FutureBuilder<AssetVideoMetadata>(
+      future: SdAssetHelper.getVideoMetadataFromAsset(videoPath: videoPath),
       builder: (context, snapshot) {
-        final imagePath = snapshot.data;
+        final assetVideoMetadata = snapshot.data;
 
         return Container(
           width: width,
@@ -35,21 +34,43 @@ class SdVideoPlaceHolder extends StatelessWidget {
             borderRadius: BorderRadius.circular(SdSpacing.s8),
           ),
           child: Stack(
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             children: [
-              if (imagePath != null)
+              if (assetVideoMetadata?.thumbnailPath != null)
                 ClipRRect(
                   borderRadius: BorderRadius.circular(SdSpacing.s8),
                   child: SdImage(
-                    imagePath: imagePath,
+                    imagePath: assetVideoMetadata!.thumbnailPath!,
                     width: width,
                     height: height,
                   ),
                 ),
-              Icon(
-                Icons.play_circle_fill,
-                size: SdSpacing.s40,
-                color: SdColors.white,
+              Container(
+                decoration: BoxDecoration(
+                  color: SdColors.black.withAlpha(100),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(SdSpacing.s8),
+                  ),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: SdSpacing.s4),
+                width: double.infinity,
+                height: SdSpacing.s24,
+                child: Row(
+                  children: [
+                    SdIcon(
+                      iconData: Ionicons.videocam_outline,
+                      iconSize: SdSpacing.s18,
+                      color: SdColors.white,
+                    ),
+                    Spacer(),
+                    Text(
+                      SdDateTimeHelper.formatDuration(
+                        assetVideoMetadata?.duration,
+                      ),
+                      style: SdTextStyle.body12().wColor(SdColors.white),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

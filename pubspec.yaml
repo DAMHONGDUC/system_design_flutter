@@ -24,6 +24,7 @@ dependencies:
   ionicons: ^0.2.2
   video_thumbnail: ^0.5.6
   path_provider: ^2.1.5
+  video_player: ^2.10.0
 
 dev_dependencies:
   flutter_test:
