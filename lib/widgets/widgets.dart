@@ -47,3 +47,9 @@ export 'image/sd_image.dart';
 
 // video
 export 'video/sd_video_placeholder.dart';
+
+// preview
+export 'preview/sd_preview_media_view.dart';
+export './preview/image_preview_view.dart';
+export './preview/video_preview_view.dart';
+export './preview/sd_preview_media_config.dart';

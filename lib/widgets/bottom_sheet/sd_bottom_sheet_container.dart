@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/resources.dart';
-import 'package:system_design_flutter/theme/theme.dart';
 
 class SdBottomSheetContainer extends StatelessWidget {
   const SdBottomSheetContainer({super.key, required this.children});

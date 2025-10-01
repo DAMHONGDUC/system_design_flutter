@@ -7,7 +7,7 @@ class SdSafeAreaScaffold extends StatelessWidget {
   const SdSafeAreaScaffold({
     super.key,
     this.backgroundColor,
-    this.contentColor,
+    this.contentBgColor,
     this.appBar,
     this.bottomNavigationBar,
     this.floatingActionButton,
@@ -67,13 +67,13 @@ class SdSafeAreaScaffold extends StatelessWidget {
   final bool bottom;
 
   // Content parameters
-  final Color? contentColor;
+  final Color? contentBgColor;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     final finalBgColor = backgroundColor ?? SdColors.white;
-    final finalContentColor = contentColor ?? SdColors.white;
+    final finalContentBgColor = contentBgColor ?? SdColors.white;
 
     return SdAdaptiveStatusBar(
       backgroundColor: finalBgColor,
@@ -88,7 +88,7 @@ class SdSafeAreaScaffold extends StatelessWidget {
           bottom: bottom,
           minimum: minimum,
           maintainBottomViewPadding: maintainBottomViewPadding,
-          child: ColoredBox(color: finalContentColor, child: child),
+          child: ColoredBox(color: finalContentBgColor, child: child),
         ),
         bottomNavigationBar: bottomNavigationBar,
         floatingActionButton: floatingActionButton,
