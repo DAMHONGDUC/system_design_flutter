@@ -50,6 +50,6 @@ export 'video/sd_video_placeholder.dart';
 
 // preview
 export 'preview/sd_preview_media_view.dart';
-export './preview/image_preview_view.dart';
-export './preview/video_preview_view.dart';
+export 'preview/sd_image_preview_view.dart';
+export 'preview/sd_video_preview_view.dart';
 export './preview/sd_preview_media_config.dart';

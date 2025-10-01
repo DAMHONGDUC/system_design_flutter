@@ -1,21 +1,21 @@
 import 'dart:io';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 import 'sd_preview_media_config.dart';
-import 'sd_preview_media_view.dart';
 
-class VideoPreviewView extends StatefulWidget {
+class SdVideoPreviewView extends StatefulWidget {
   final SdPreviewMediaConfig config;
 
-  const VideoPreviewView({super.key, required this.config});
+  const SdVideoPreviewView({super.key, required this.config});
 
   @override
-  State<VideoPreviewView> createState() => _VideoPreviewViewState();
+  State<SdVideoPreviewView> createState() => _SdVideoPreviewViewState();
 }
 
-class _VideoPreviewViewState extends State<VideoPreviewView> {
+class _SdVideoPreviewViewState extends State<SdVideoPreviewView> {
   late Future<File> _fileFuture;
 
   @override
@@ -53,7 +53,6 @@ class _VideoPreviewViewState extends State<VideoPreviewView> {
   }
 }
 
-/// Widget riêng để quản lý VideoPlayerController
 class _VideoPlayerWidget extends StatefulWidget {
   final File file;
 
@@ -64,56 +63,30 @@ class _VideoPlayerWidget extends StatefulWidget {
 }
 
 class _VideoPlayerWidgetState extends State<_VideoPlayerWidget> {
-  late VideoPlayerController _controller;
-  bool _isInitialized = false;
+  late VideoPlayerController _videoController;
+  late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.file(widget.file)
-      ..initialize().then((_) {
-        setState(() {
-          _isInitialized = true;
-        });
-      });
+    _videoController = VideoPlayerController.file(widget.file);
+
+    _chewieController = ChewieController(
+      videoPlayerController: _videoController,
+      autoPlay: true,
+      looping: true,
+    );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _videoController.dispose();
+    _chewieController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!_isInitialized) {
-      return const Center(child: CircularProgressIndicator());
-    }
-
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: VideoPlayer(_controller),
-        ),
-        IconButton(
-          icon: Icon(
-            _controller.value.isPlaying
-                ? Icons.pause_circle
-                : Icons.play_circle,
-            size: 60,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-        ),
-      ],
-    );
+    return Chewie(controller: _chewieController);
   }
 }
