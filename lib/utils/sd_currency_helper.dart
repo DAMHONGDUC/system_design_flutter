@@ -1,6 +1,7 @@
 import 'package:currency_formatter/currency_formatter.dart';
 import 'package:flutter/services.dart';
 import 'package:system_design_flutter/utils/utils.dart';
+import 'package:intl/intl.dart';
 
 class SdCurrencyFormatHelper {
   static String cleanString(String amount) {
@@ -111,5 +112,18 @@ class SdCurrencyFormatHelper {
         selection: TextSelection.collapsed(offset: newCursorPosition),
       );
     });
+  }
+
+  static String formatPrice(
+    num price, {
+    String locale = 'en_US',
+    String symbol = '\$',
+  }) {
+    final formatter = NumberFormat.currency(
+      locale: locale,
+      symbol: symbol,
+      decimalDigits: 2,
+    );
+    return formatter.format(price).trim();
   }
 }

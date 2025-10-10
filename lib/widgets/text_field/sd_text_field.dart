@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/utils/utils.dart';
 import 'package:system_design_flutter/widgets/spacing/sd_horizontal_spacing.dart';
 import 'package:system_design_flutter/resources/resources.dart';
@@ -40,11 +39,11 @@ class SdTextField extends StatelessWidget {
           ),
           SdVerticalSpacing(value: SdSpacing.s4),
         ],
-        MoonTextInput(
+        TextField(
           controller: controller,
           cursorColor: SdColors.grey,
           readOnly: readOnly,
-          trailing: rightWidget,
+          // trailing: rightWidget,
           onTap:
               readOnly
                   ? () {
@@ -53,7 +52,7 @@ class SdTextField extends StatelessWidget {
                   }
                   : null,
           style: textStyle ?? SdTextStyle.body12(),
-          activeBorderColor: activeBorderColor,
+          // activeBorderColor: activeBorderColor,
         ),
       ],
     );

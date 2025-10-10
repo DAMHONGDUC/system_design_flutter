@@ -5,18 +5,22 @@ class SdInkWell extends StatelessWidget {
   final void Function()? onTap;
   final Widget child;
   final double? borderRadius;
-  final EdgeInsets? padding;
   final Color? containerBg;
-  final bool isFlat;
+  final EdgeInsets? padding;
+  final double? width;
+  final double? height;
+  final Border? border;
 
   const SdInkWell({
     super.key,
     required this.child,
     required this.onTap,
     this.borderRadius = 100,
-    this.padding,
     this.containerBg,
-    this.isFlat = false,
+    this.padding,
+    this.width,
+    this.height,
+    this.border,
   });
 
   @override
@@ -25,12 +29,12 @@ class SdInkWell extends StatelessWidget {
     final defautPadding = padding ?? EdgeInsets.all(SdSpacing.s12);
 
     return Container(
+      width: width,
+      height: height,
       decoration: BoxDecoration(
-        borderRadius:
-            isFlat
-                ? null
-                : BorderRadius.all(Radius.circular(defaultBorderRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
         color: containerBg,
+        border: border,
       ),
       child: Material(
         color: SdColors.transparent,
@@ -41,10 +45,7 @@ class SdInkWell extends StatelessWidget {
             ),
           ),
           onTap: onTap,
-          child: Container(
-            padding: isFlat ? null : defautPadding,
-            child: child,
-          ),
+          child: Container(padding: defautPadding, child: child),
         ),
       ),
     );

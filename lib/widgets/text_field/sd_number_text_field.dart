@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
 class SdNumberTextField extends StatefulWidget {
@@ -78,9 +77,9 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
           children: [
             Flexible(
               flex: 7,
-              child: MoonTextInput(
-                hintText: widget.hintText,
-                hintTextColor: widget.inputHintColor ?? SdColors.grey600,
+              child: TextField(
+                // hintText: widget.hintText,
+                // hintTextColor: widget.inputHintColor ?? SdColors.grey600,
                 inputFormatters: [
                   ...?widget.inputFormatters,
                   if (widget.onlyInt) SdCurrencyFormatHelper.intFormatter(),
@@ -98,18 +97,18 @@ class _SdNumberTextFieldState extends State<SdNumberTextField> {
                 focusNode: widget.focusNode,
                 keyboardType: TextInputType.number,
                 onChanged: widget.onChanged,
-                trailing:
-                    widget.allowClear
-                        ? GestureDetector(
-                          child: SdIcon(
-                            iconData: MoonIcons.controls_close_small_24_light,
-                            color: widget.inputHintColor,
-                          ),
-                          onTap: _onTapClear,
-                        )
-                        : null,
+                // trailing:
+                //     widget.allowClear
+                //         ? GestureDetector(
+                //           child: SdIcon(
+                //             iconData: MoonIcons.controls_close_small_24_light,
+                //             color: widget.inputHintColor,
+                //           ),
+                //           onTap: _onTapClear,
+                //         )
+                //         : null,
                 style: SdTextStyle.body14(),
-                activeBorderColor: widget.activeBorderColor,
+                // activeBorderColor: widget.activeBorderColor,
               ),
             ),
             SdHorizontalSpacing(value: SdSpacing.s6),

@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:moon_design/moon_design.dart';
 import 'package:system_design_flutter/index.dart';
 
 class SdHelper {
@@ -21,9 +20,8 @@ class SdHelper {
       topRight: Radius.circular(SdSpacing.s10),
     );
 
-    showMoonModalBottomSheet(
+    showModalBottomSheet(
       context: context,
-      borderRadius: borderRadius,
       builder: (context) {
         return SdBottomSheet(
           title: title,
@@ -90,5 +88,12 @@ class SdHelper {
     return Platform.isAndroid
         ? Icons.arrow_back
         : Ionicons.chevron_back_outline;
+  }
+
+  static EdgeInsets getPageDefaultPadding() {
+    return const EdgeInsets.symmetric(
+      horizontal: SdSpacing.s16,
+      vertical: SdSpacing.s12,
+    );
   }
 }
