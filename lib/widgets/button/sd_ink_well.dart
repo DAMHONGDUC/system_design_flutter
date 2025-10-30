@@ -6,7 +6,7 @@ class SdInkWell extends StatelessWidget {
   final Widget child;
   final double? borderRadius;
   final Color? containerBg;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? padding;
   final double? width;
   final double? height;
   final Border? border;

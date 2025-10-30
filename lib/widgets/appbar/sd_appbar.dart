@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/resources.dart';
 import 'package:system_design_flutter/utils/sd_helper.dart';
@@ -19,6 +17,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? titleWidget;
   final PreferredSizeWidget? bottom;
   final bool noElevation;
+  final double titleSpacing;
+  final EdgeInsetsGeometry? actionPadding;
 
   const SdAppBar({
     super.key,
@@ -34,11 +34,14 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleWidget,
     this.bottom,
     this.noElevation = false,
+    this.titleSpacing = SdSpacing.s12,
+    this.actionPadding,
   });
 
   @override
   Widget build(BuildContext context) {
-    final spacingWithEdge = SdSpacing.s10;
+    final finalActionPadding =
+        actionPadding ?? EdgeInsets.only(right: titleSpacing);
 
     return AppBar(
       title:
@@ -46,7 +49,7 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
           (titleText != null
               ? Text(
                 titleText!,
-                style: SdTextStyle.heading14().copyWith(color: textColor),
+                style: SdTextStyle.heading16().copyWith(color: textColor),
               )
               : null),
       centerTitle: centerTitle,
@@ -66,8 +69,8 @@ class SdAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               )
               : null,
-      titleSpacing: spacingWithEdge,
-      actionsPadding: EdgeInsets.only(right: spacingWithEdge),
+      titleSpacing: titleSpacing,
+      actionsPadding: finalActionPadding,
       elevation: noElevation ? 0 : SdSpacing.s1,
       shadowColor:
           noElevation ? Colors.transparent : (shadowColor ?? SdColors.black54),

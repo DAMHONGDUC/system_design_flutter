@@ -9,6 +9,7 @@ export './bottom_sheet/sd_bottom_sheet.dart';
 // Button
 export 'button/sd_button.dart';
 export 'button/sd_ink_well.dart';
+export './button/sd_icon_button.dart';
 
 // Spacing
 export 'spacing/sd_horizontal_spacing.dart';
