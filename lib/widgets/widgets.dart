@@ -37,6 +37,8 @@ export './skeleton/sd_skeleton.dart';
 
 // list
 export 'list/sd_list_view.dart';
+export './list/sd_grid_view.dart';
+export './list/sd_list_view_load_more.dart';
 
 // container
 export 'container/sd_safe_area_scaffold.dart';
