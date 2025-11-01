@@ -5,18 +5,18 @@ class SdTag extends StatelessWidget {
   final String label;
   final Color color;
   final EdgeInsetsGeometry padding;
-  final double borderRadius;
+  final double borderRadiusValue;
   final TextStyle? textStyle;
 
   const SdTag({
     super.key,
     required this.label,
-    this.color = const Color(0xFF00ACC1),
+    this.color = SdColors.black,
     this.padding = const EdgeInsets.symmetric(
       horizontal: SdSpacing.s12,
       vertical: SdSpacing.s6,
     ),
-    this.borderRadius = SdSpacing.s12,
+    this.borderRadiusValue = SdSpacing.s100,
     this.textStyle,
   });
 
@@ -27,7 +27,7 @@ class SdTag extends StatelessWidget {
       decoration: BoxDecoration(
         color: SdColors.transparent,
         border: Border.all(color: color, width: SdSpacing.s1),
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(borderRadiusValue),
       ),
       child: Text(
         label,

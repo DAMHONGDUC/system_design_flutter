@@ -130,11 +130,11 @@ class SdButton extends StatelessWidget {
   double getVerticalPadding() {
     switch (buttonSize) {
       case SdButtonSize.Small:
-        return SdSpacing.s10;
+        return SdSpacing.s8;
       case SdButtonSize.Medium:
-        return SdSpacing.s12;
+        return SdSpacing.s10;
       case SdButtonSize.Large:
-        return SdSpacing.s14;
+        return SdSpacing.s12;
     }
   }
 
@@ -143,13 +143,13 @@ class SdButton extends StatelessWidget {
 
     switch (buttonSize) {
       case SdButtonSize.Small:
-        value = SdSpacing.s14;
+        value = SdSpacing.s12;
         break;
       case SdButtonSize.Medium:
-        value = SdSpacing.s16;
+        value = SdSpacing.s14;
         break;
       case SdButtonSize.Large:
-        value = SdSpacing.s18;
+        value = SdSpacing.s16;
         break;
     }
 
