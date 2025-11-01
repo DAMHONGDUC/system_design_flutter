@@ -22,6 +22,9 @@ extension ListExtensions on List? {
 
 extension RandomItem<T> on List<T> {
   T getRandomItem() {
+    if (isEmpty) {
+      throw StateError('Cannot get random item from an empty list');
+    }
     final random = Random();
     return this[random.nextInt(length)];
   }

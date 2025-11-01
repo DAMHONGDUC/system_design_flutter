@@ -118,11 +118,12 @@ class SdCurrencyFormatHelper {
     num price, {
     String locale = 'en_US',
     String symbol = '\$',
+    int decimalDigits = 0,
   }) {
     final formatter = NumberFormat.currency(
       locale: locale,
       symbol: symbol,
-      decimalDigits: 2,
+      decimalDigits: decimalDigits,
     );
     return formatter.format(price).trim();
   }

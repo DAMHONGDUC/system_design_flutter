@@ -21,8 +21,9 @@ class SdImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isRemoteImg = imagePath.startsWith('http');
+    final isAssetImg = imagePath.startsWith('asset');
 
-    if (!isRemoteImg) {
+    if (isAssetImg) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: Image.asset(

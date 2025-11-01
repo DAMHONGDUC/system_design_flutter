@@ -56,3 +56,6 @@ export 'preview/sd_preview_media_view.dart';
 export 'preview/sd_image_preview_view.dart';
 export 'preview/sd_video_preview_view.dart';
 export './preview/sd_preview_media_config.dart';
+
+// tag
+export './tag/sd_stag.dart';

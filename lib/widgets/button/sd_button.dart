@@ -6,6 +6,8 @@ enum SdButtonType { primary, secondary }
 
 enum SdButtonWidth { full, fitContent }
 
+enum SdButtonSize { Small, Medium, Large }
+
 /// Configuration class for button colors
 class SdButtonColorConfig {
   final Color primaryBgColor;
@@ -59,7 +61,7 @@ class SdButtonColorConfig {
 }
 
 class SdButton extends StatelessWidget {
-  final String text;
+  final String title;
   final void Function()? onTap;
   final SdButtonType type;
   final SdButtonWidth widthType;
@@ -71,13 +73,15 @@ class SdButton extends StatelessWidget {
   final double? height;
   final SdButtonColorConfig colorConfig;
   final double? width;
+  final double? borderRadiusValue;
+  final SdButtonSize buttonSize;
 
   SdButton({
     super.key,
-    required this.text,
+    required this.title,
     this.onTap,
     this.type = SdButtonType.primary,
-    this.widthType = SdButtonWidth.full,
+    this.widthType = SdButtonWidth.fitContent,
     this.isDisabled = false,
     this.titleMaxLines = 1,
     this.leading,
@@ -86,6 +90,8 @@ class SdButton extends StatelessWidget {
     this.height,
     this.width,
     SdButtonColorConfig? colorConfig,
+    this.borderRadiusValue,
+    this.buttonSize = SdButtonSize.Medium,
   }) : colorConfig = colorConfig ?? SdButtonColorConfig.init();
 
   Color _getBackgroundColor() {
@@ -121,11 +127,88 @@ class SdButton extends StatelessWidget {
     return null;
   }
 
+  double getVerticalPadding() {
+    switch (buttonSize) {
+      case SdButtonSize.Small:
+        return SdSpacing.s10;
+      case SdButtonSize.Medium:
+        return SdSpacing.s12;
+      case SdButtonSize.Large:
+        return SdSpacing.s14;
+    }
+  }
+
+  double getHorizontalPadding() {
+    double value = 0;
+
+    switch (buttonSize) {
+      case SdButtonSize.Small:
+        value = SdSpacing.s14;
+        break;
+      case SdButtonSize.Medium:
+        value = SdSpacing.s16;
+        break;
+      case SdButtonSize.Large:
+        value = SdSpacing.s18;
+        break;
+    }
+
+    return widthType == SdButtonWidth.fitContent ? value * 1.5 : value;
+  }
+
+  TextStyle getTitleTextStyle(Color textColor) {
+    double textSize = SdSpacing.s14;
+
+    switch (buttonSize) {
+      case SdButtonSize.Small:
+        textSize = SdSpacing.s12;
+        break;
+      case SdButtonSize.Medium:
+        textSize = SdSpacing.s14;
+        break;
+      case SdButtonSize.Large:
+        textSize = SdSpacing.s16;
+        break;
+    }
+
+    return SdBaseTextStyle.base().copyWith(
+      fontSize: textSize,
+      color: textColor,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  TextStyle getSubTitleTextStyle(Color textColor) {
+    double textSize = SdSpacing.s14;
+
+    switch (buttonSize) {
+      case SdButtonSize.Small:
+        textSize = SdSpacing.s10;
+        break;
+      case SdButtonSize.Medium:
+        textSize = SdSpacing.s12;
+        break;
+      case SdButtonSize.Large:
+        textSize = SdSpacing.s14;
+        break;
+    }
+
+    return SdBaseTextStyle.base().copyWith(
+      fontSize: textSize,
+      color: textColor,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final bgColor = _getBackgroundColor();
     final textColor = _getTextColor();
     final border = _getBorder();
+    final verticalPadding = getVerticalPadding();
+    final horizontalPadding = getHorizontalPadding();
+    final finalTitleTextStyle = getTitleTextStyle(textColor);
+    final finalSubTitleTextStyle = getSubTitleTextStyle(SdColors.grey200);
 
     Widget content = Column(
       mainAxisSize: MainAxisSize.min,
@@ -151,11 +234,8 @@ class SdButton extends StatelessWidget {
                       ? FlexFit.loose
                       : FlexFit.tight,
               child: Text(
-                text,
-                style: SdTextStyle.body14().copyWith(
-                  color: textColor,
-                  fontWeight: FontWeight.w600,
-                ),
+                title,
+                style: finalTitleTextStyle,
                 maxLines: titleMaxLines,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
@@ -174,7 +254,7 @@ class SdButton extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             subtitle!,
-            style: SdTextStyle.body14(),
+            style: finalSubTitleTextStyle,
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -185,17 +265,14 @@ class SdButton extends StatelessWidget {
 
     return SdInkWell(
       containerBg: bgColor,
-      borderRadius: SdSpacing.s100,
+      borderRadius: borderRadiusValue ?? SdSpacing.s100,
       border: border,
       onTap: isDisabled ? null : onTap,
       padding: EdgeInsets.symmetric(
-        horizontal:
-            widthType == SdButtonWidth.fitContent
-                ? SdSpacing.s20
-                : SdSpacing.s16,
-        vertical: SdSpacing.s12,
+        horizontal: horizontalPadding,
+        vertical: verticalPadding,
       ),
-      height: height ?? (subtitle != null ? SdSpacing.s56 : SdSpacing.s48),
+      height: height,
       width:
           width ?? (widthType == SdButtonWidth.full ? double.infinity : null),
       child: content,
