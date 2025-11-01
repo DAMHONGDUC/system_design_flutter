@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_design_flutter/resources/sd_spacing.dart';
+import 'package:system_design_flutter/utils/sd_log.dart';
 
 class SdListViewLoadMore extends StatefulWidget {
   final ScrollController? controller;
@@ -55,11 +56,8 @@ class _SdListViewLoadMoreState extends State<SdListViewLoadMore> {
 
   @override
   void didUpdateWidget(covariant SdListViewLoadMore oldWidget) {
+    _isLoadingTriggered = false;
     super.didUpdateWidget(oldWidget);
-    // Reset trigger when load more finished
-    if (oldWidget.canLoadMore && !widget.canLoadMore) {
-      _isLoadingTriggered = false;
-    }
   }
 
   @override

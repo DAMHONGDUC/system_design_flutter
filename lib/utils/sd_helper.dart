@@ -62,8 +62,8 @@ class SdHelper {
     await Future.delayed(Duration(milliseconds: milliseconds), action);
   }
 
-  static Future<void> delayLoading() async {
-    await Future.delayed(Duration(seconds: randomInt(min: 1, max: 3)));
+  static Future<void> delayLoading({int min = 1, int max = 3}) async {
+    await Future.delayed(Duration(seconds: randomInt(min: min, max: max)));
   }
 
   static bool isAmountOverLimit(String value, {int? limit}) {
